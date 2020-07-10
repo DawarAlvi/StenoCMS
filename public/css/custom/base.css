@@ -35,6 +35,9 @@ body {
 h1 {
     color:var(--dark);
 }
+a {
+    text-decoration: none;
+}
 
 
 /* --*-- mobile first --*-- */
@@ -50,7 +53,6 @@ nav {
     transition:background-color 0.5s ease-in-out;
 }
     nav a {
-        text-decoration: none;
         display:inline-block;
         padding:0 0.4em;
 
@@ -214,7 +216,6 @@ footer{
         list-style-type: none;
     }
     .footer-nav-links li a{
-        text-decoration: none;
         color:#fff;
         padding:5px;
     }

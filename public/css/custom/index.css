@@ -4,6 +4,12 @@
 h1 {
     text-align: center;
 }
+h1 a {
+    color:var(--dark);
+}
+h1 a:hover {
+    color:var(--highlight);
+}
 .popularposts, .latestposts {
     padding:1em;
     display: grid;
