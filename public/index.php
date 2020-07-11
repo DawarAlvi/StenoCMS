@@ -10,7 +10,7 @@
 
     <!-- STYLES -->
     <link rel="stylesheet" href="css/all.min.css" type="text/css">
-    <link rel="stylesheet" href="css/custom/index.css" type="text/css">
+    <link rel="stylesheet" href="css/custom/index.php" type="text/css">
 
     <!--FAVICONS-->
     <link rel="icon" type="image/x-icon" href="img/steno_logo.png">
@@ -108,6 +108,30 @@
         </div><!-- Latest End-->
 
     </div><!-- Blogposts End-->
+
+
+    <!-- Categories -->
+    <h1><a href="categories.php">Categories <span class="fa fa-angle-right"></span></a></h1>
+
+    <div class="categories">
+
+        <a href="#" class="category">
+                <span>Technology</span>
+        </a>
+
+        <a href="#" class="category">
+                <span>Science</span>
+        </a>
+
+        <a href="#" class="category">
+                <span>Nature</span>
+        </a>
+
+        <a href="#" class="category">
+                <span>Photography</span>
+        </a>
+
+    </div>
 
     <?php require_once("../includes/footer.php"); ?>
 

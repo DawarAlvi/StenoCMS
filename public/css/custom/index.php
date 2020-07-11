@@ -1,14 +1,16 @@
-@import url("base.css");
+<?php Header("Content-type: text/css; charset: utf-8") ?>
+
+<?php require_once("base.php") ?>
 
 /* --*-- mobile first --*-- */
 h1 {
     text-align: center;
 }
 h1 a {
-    color:var(--dark);
+    color: <?php echo($dark); ?>;
 }
 h1 a:hover {
-    color:var(--highlight);
+    color: <?php echo($highlight); ?>;
 }
 .popularposts, .latestposts {
     padding:1em;
@@ -61,7 +63,30 @@ h1 a:hover {
             }
             .post .date {
                 justify-self: end;
-            }        
+            }
+
+.categories {
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    padding:10px;
+}
+.category {
+    text-align: center;
+    background: url(../../img/index/05.jpg) center center no-repeat;
+    background-size: cover;
+    line-height:150px;
+    color:black;
+}
+.category span {
+    background-color: white;
+    padding:2px;
+}
+.category:hover span, .category:focus span {
+    letter-spacing: .2em;
+    transition: 0.5s all;
+}
+
 /* --*-- Mobile Ends --*-- */
 
 
@@ -72,6 +97,11 @@ h1 a:hover {
         display: grid;
         /* grid-template-columns:repeat(2,auto); */
         
+    }
+
+    .categories {
+        gap:15px;
+        padding:15px;
     }
 }
 /* --*-- Tablet Media Query Ends --*-- */
@@ -100,5 +130,20 @@ h1 a:hover {
     .post-4 {
         grid-column: 2/4;
     }
+
+    
+    .categories {
+        grid-template-columns: repeat(4,1fr);
+        gap:20px;
+        padding:20px;
+    }
+    .category {
+        height:200px;
+    }
+    .category span {
+        line-height: 200px;
+    }
+
+
 }
 /* --*-- Desktop Media Query Ends --*-- */

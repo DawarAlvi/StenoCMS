@@ -1,11 +1,10 @@
 /* variables */
-:root {
-    --dark:#272727;
-    --dark-alpha:#111111cc;
-    --light:#eee;
-    --highlight:#008bb6;
-}
-
+<?php
+    $dark = "#272727";
+    $dark_alpha = "#111111cc";
+    $light = "#eee";
+    $highlight = "#008bb6";
+?>
 
 /* fonts */
 @font-face {
@@ -33,7 +32,7 @@ body {
     font-family:'Raleway','Inter',sans-serif;
 }
 h1 {
-    color:var(--dark);
+    color:<?php echo($dark); ?>;
 }
 a {
     text-decoration: none;
@@ -42,7 +41,7 @@ a {
 
 /* --*-- mobile first --*-- */
 nav {
-    background-color: var(--dark-alpha);
+    background-color: <?php echo($dark_alpha); ?>;
     position:fixed;
     width:100%;
     display:flex;
@@ -56,14 +55,14 @@ nav {
         display:inline-block;
         padding:0 0.4em;
 
-        color:var(--light);
+        color:<?php echo($light); ?>;
         
         line-height:2.5em;
         /* line-height is changed in js */
         transition: line-height 0.5s ease-in-out;
     }
     nav a:hover, nav a:focus {
-        color:var(--highlight);
+        color:<?php echo($highlight); ?>;
         transition: color 0.2s ease-in-out;
     }
 
@@ -103,7 +102,7 @@ nav {
             width:fit-content;
             margin:auto auto;
             font-size:4em;
-            color:var(--light);
+            color:<?php echo($light); ?>;
             font-family: 'Sarina','Raleway','Inter',monospace;
         }
         .strip .caption {
@@ -111,7 +110,7 @@ nav {
             margin: 1em auto 0 auto;
             font-size:1.2em;
             font-family:'Raleway','Inter',sans-serif;
-            color:var(--light);
+            color:<?php echo($light); ?>;
             display: none;
         }
 /* --*-- Mobile Ends --*-- */
@@ -220,7 +219,7 @@ footer{
         padding:5px;
     }
     .footer-nav-links li a:hover{
-        color:var(--highlight);
+        color:<?php echo($highlight); ?>;
     }
 /* --*-- Mobile Ends --*-- */
 

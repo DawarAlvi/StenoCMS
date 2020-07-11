@@ -10,7 +10,7 @@
 
     <!-- STYLES -->
     <link rel="stylesheet" href="css/all.min.css" type="text/css">
-    <link rel="stylesheet" href="css/custom/contact.css" type="text/css">
+    <link rel="stylesheet" href="css/custom/contact.php" type="text/css">
 
     <!--FAVICONS-->
     <link rel="icon" type="image/x-icon" href="img/steno_logo.png">

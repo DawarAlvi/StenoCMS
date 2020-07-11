@@ -1,4 +1,6 @@
-@import url("base.css");
+<?php Header("Content-type: text/css; charset: utf-8") ?>
+
+<?php require_once("base.php") ?>
 
 /* --*-- mobile first --*-- */
 h1 {
@@ -11,7 +13,7 @@ p, .features{
 .features li {
     list-style: none;
     color:whitesmoke;
-    background-color: var(--dark);
+    background-color: <?php echo($dark); ?>;
     line-height: 4em;
     padding:1em;
     margin:10px 0;
@@ -19,7 +21,7 @@ p, .features{
 }
 .features span {
     background-color: whitesmoke;
-    color: var(--dark);
+    color: <?php echo($dark); ?>;
     padding:1em;
     margin-right: 1em;
     border-radius: 100px;
