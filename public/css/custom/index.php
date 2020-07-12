@@ -8,7 +8,7 @@ h1 {
 h1 a {
     color: <?php echo($dark); ?>;
 }
-h1 a:hover {
+h1 a:hover, h1 a:focus {
     color: <?php echo($highlight); ?>;
 }
 .popularposts, .latestposts {
