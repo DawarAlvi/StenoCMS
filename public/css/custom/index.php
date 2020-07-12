@@ -1,5 +1,4 @@
 <?php Header("Content-type: text/css; charset: utf-8") ?>
-
 <?php require_once("base.php") ?>
 
 /* --*-- mobile first --*-- */
@@ -71,21 +70,21 @@ h1 a:hover {
     gap: 10px;
     padding:10px;
 }
-.category {
-    text-align: center;
-    background: url(../../img/index/05.jpg) center center no-repeat;
-    background-size: cover;
-    line-height:150px;
-    color:black;
-}
-.category span {
-    background-color: white;
-    padding:2px;
-}
-.category:hover span, .category:focus span {
-    letter-spacing: .2em;
-    transition: 0.5s all;
-}
+    .category {
+        text-align: center;
+        background: url(../../img/index/05.jpg) center center no-repeat;
+        background-size: cover;
+        line-height:150px;
+        color:black;
+    }
+        .category span {
+            background-color: white;
+            padding:2px;
+        }
+        .category:hover span, .category:focus span {
+            letter-spacing: .2em;
+            transition: 0.5s all;
+        }
 
 /* --*-- Mobile Ends --*-- */
 

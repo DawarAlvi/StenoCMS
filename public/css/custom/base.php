@@ -101,7 +101,7 @@ nav {
         .strip .title {
             width:fit-content;
             margin:auto auto;
-            font-size:4em;
+            font-size:2em;
             color:<?php echo($light); ?>;
             font-family: 'Sarina','Raleway','Inter',monospace;
         }
@@ -138,6 +138,9 @@ nav {
         width:150px;
         margin: 0 auto 1.5em auto;
     }
+    .strip .title {
+        font-size:3em;
+    }
     .strip .caption{
         font-size:1.2em;
         display: block;
@@ -146,13 +149,21 @@ nav {
 /* --*-- Tablet Media Query Ends --*-- */
 
 /* --*-- Desktop Media Query --*-- */
-@media (min-width:980px){
+@media (min-width:980px) {
+
     nav a{
         padding:0 4em;
+    }
+    .strip .title {
+        font-size:4em;
     }
 
 }
 /* --*-- Desktop Media Query Ends --*-- */
+
+
+
+
 
 
 

@@ -21,6 +21,38 @@
     <?php require_once("../includes/functions.php"); ?>
     <?php require_once("../includes/nav.php"); ?>
     <?php echo (get_banner("Categories", "Find Something You Like")); ?>
+    <div class="categories">
+        <a href="#" class="category">
+            <span>Technology</span>
+        </a>
+        <a href="#" class="category">
+            <span>Science</span>
+        </a>
+
+        <a href="#" class="category">
+            <span>Nature</span>
+        </a>
+
+        <a href="#" class="category">
+            <span>Photography</span>
+        </a>
+
+        <a href="#" class="category">
+            <span>Technology</span>
+        </a>
+        <a href="#" class="category">
+            <span>Science</span>
+        </a>
+
+        <a href="#" class="category">
+            <span>Nature</span>
+        </a>
+
+        <a href="#" class="category">
+            <span>Photography</span>
+        </a>
+    </div>
+
 
     <?php require_once("../includes/footer.php"); ?>
 
