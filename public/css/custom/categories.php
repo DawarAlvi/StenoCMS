@@ -16,12 +16,12 @@
             color:black;
         }
             .category span {
-                background-color: white;
+                background-color: #ffffff55;
                 padding:2px;
+                transition: 0.5s all;
             }
             .category:hover span, .category:focus span {
                 letter-spacing: .2em;
-                transition: 0.5s all;
             }
 /* --*-- Mobile Ends --*-- */
 
