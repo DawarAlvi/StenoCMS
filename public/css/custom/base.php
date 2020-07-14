@@ -1,10 +1,4 @@
-/* variables */
-<?php
-    $dark = "#272727";
-    $dark_alpha = "#111111cc";
-    $light = "#eee";
-    $highlight = "#008bb6";
-?>
+<?php require_once("vars.php") ?>
 
 /* fonts */
 @font-face {
