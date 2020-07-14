@@ -10,12 +10,12 @@
 }
     .contact-form input, .contact-form textarea {
         border-radius: 0;
-        border:1px solid lightgrey;
-        line-height: 2em;
+        border:5px solid #ffffffff;
+        line-height: 3em;
     }
     .contact-form input[type=submit] {
         width: 8em;
-        height: 3em;
+        height: 4em;
         align-self: center;
         margin:1em;
         

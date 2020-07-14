@@ -58,7 +58,7 @@ h1 a:hover, h1 a:focus {
             }
             .post .tags,
             .post .date {
-                font-size: .75em;
+                font-size: .8em;
             }
             .post .date {
                 justify-self: end;

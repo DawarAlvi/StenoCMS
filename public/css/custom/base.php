@@ -37,7 +37,10 @@ h1 {
 a {
     text-decoration: none;
 }
-
+.fa-circle {
+    font-size:0.5em;
+    margin: 0 1em;
+}
 
 /* --*-- mobile first --*-- */
 nav {
@@ -96,7 +99,7 @@ nav {
         .strip .logo {
             background: url("../../img/steno_logo1.png") center center no-repeat;
             background-size: contain;
-            height:100px;
+            height:100px;Technology
         }
         .strip .title {
             width:fit-content;

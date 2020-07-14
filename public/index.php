@@ -22,93 +22,54 @@
 
     <?php echo (get_banner()); ?>
 
-    <!-- Blogposts -->
-    <div class="blogposts">
+    <!-- Popular posts -->
+    <h1><a href="#">Popular <span class="fa fa-angle-right"></span></a></h1>
 
-        <h1><a href="#">Popular <span class="fa fa-angle-right"></span></a></h1>
+    <div class="popularposts">
 
-        <div class="popularposts">
-
-            <a class="post" href="#">
-                <div class="postbg">
-                    <div class="postbanner">
-                        <div class="title">The Xbox project Scorpio release date announced.</div>
-                        <div class="tags">Technology * Gaming</div>
-                        <div class="date">18 May 2020</div>
+        <a class="post" href="#">
+            <div class="postbg">
+                <div class="postbanner">
+                    <div class="title">The Xbox project Scorpio release date announced.</div>
+                    <div class="tags">
+                        <span>Technology</span>
+                        <span class="fa fa-circle"></span>
+                        <span>Gaming</span>
                     </div>
+                    <div class="date">18 May 2020</div>
                 </div>
-            </a>
+            </div>
+        </a>
 
-            <a class="post" href="#">
-                <div class="postbg">
-                    <div class="postbanner">
-                        <div class="title">The Xbox project Scorpio release date announced.</div>
-                        <div class="tags">Technology * Gaming</div>
-                        <div class="date">18 May 2020</div>
+        <a class="post" href="#">
+            <div class="postbg">
+                <div class="postbanner">
+                    <div class="title">The Xbox project Scorpio release date announced.</div>
+                    <div class="tags">
+                        <span>Technology</span>
+                        <span class="fa fa-circle"></span>
+                        <span>Gaming</span>
                     </div>
+                    <div class="date">18 May 2020</div>
                 </div>
-            </a>
+            </div>
+        </a>
 
-            <a class="post" href="#">
-                <div class="postbg">
-                    <div class="postbanner">
-                        <div class="title">The Xbox project Scorpio release date announced.</div>
-                        <div class="tags">Technology * Gaming</div>
-                        <div class="date">18 May 2020</div>
+        <a class="post" href="#">
+            <div class="postbg">
+                <div class="postbanner">
+                    <div class="title">The Xbox project Scorpio release date announced.</div>
+                    <div class="tags">
+                        <span>Technology</span>
+                        <span class="fa fa-circle"></span>
+                        <span>Gaming</span>
                     </div>
+                    <div class="date">18 May 2020</div>
                 </div>
-            </a>
+            </div>
+        </a>
 
-        </div><!-- popularposts End -->
-
-        <h1><a href="#">Latest <span class="fa fa-angle-right"></span></a></h1>
-
-        <div class="latestposts">
-
-            <a class="post post-1" href="#">
-                <div class="postbg">
-                    <div class="postbanner">
-                        <div class="title">The Xbox project Scorpio release date announced.</div>
-                        <div class="tags">Technology * Gaming</div>
-                        <div class="date">18 May 2020</div>
-                    </div>
-                </div>
-            </a>
-
-            <a class="post post-2" href="#">
-                <div class="postbg">
-                    <div class="postbanner">
-                        <div class="title">The Xbox project Scorpio release date announced.</div>
-                        <div class="tags">Technology * Gaming</div>
-                        <div class="date">18 May 2020</div>
-                    </div>
-                </div>
-            </a>
-
-            <a class="post post-3" href="#">
-                <div class="postbg">
-                    <div class="postbanner">
-                        <div class="title">The Xbox project Scorpio release date announced.</div>
-                        <div class="tags">Technology * Gaming</div>
-                        <div class="date">18 May 2020</div>
-                    </div>
-                </div>
-            </a>
-
-            <a class="post post-4" href="#">
-                <div class="postbg">
-                    <div class="postbanner">
-                        <div class="title">The Xbox project Scorpio release date announced.</div>
-                        <div class="tags">Technology * Gaming</div>
-                        <div class="date">18 May 2020</div>
-                    </div>
-                </div>
-            </a>
-
-        </div><!-- Latest End-->
-
-    </div><!-- Blogposts End-->
-
+    </div><!-- popularposts End -->
 
     <!-- Categories -->
     <h1><a href="categories.php">Categories <span class="fa fa-angle-right"></span></a></h1>
@@ -116,22 +77,86 @@
     <div class="categories">
 
         <a href="#" class="category">
-                <span>Technology</span>
+            <span>Technology</span>
         </a>
 
         <a href="#" class="category">
-                <span>Science</span>
+            <span>Science</span>
         </a>
 
         <a href="#" class="category">
-                <span>Nature</span>
+            <span>Nature</span>
         </a>
 
         <a href="#" class="category">
-                <span>Photography</span>
+            <span>Photography</span>
         </a>
 
-    </div>
+    </div><!-- Categories End -->
+
+    <!-- Latest posts -->
+    <h1><a href="#">Latest <span class="fa fa-angle-right"></span></a></h1>
+
+    <div class="latestposts">
+
+        <a class="post post-1" href="#">
+            <div class="postbg">
+                <div class="postbanner">
+                    <div class="title">The Xbox project Scorpio release date announced.</div>
+                    <div class="tags">
+                        <span>Technology</span>
+                        <span class="fa fa-circle"></span>
+                        <span>Gaming</span>
+                    </div>
+                    <div class="date">18 May 2020</div>
+                </div>
+            </div>
+        </a>
+
+        <a class="post post-2" href="#">
+            <div class="postbg">
+                <div class="postbanner">
+                    <div class="title">The Xbox project Scorpio release date announced.</div>
+                    <div class="tags">
+                        <span>Technology</span>
+                        <span class="fa fa-circle"></span>
+                        <span>Gaming</span>
+                    </div>
+                    <div class="date">18 May 2020</div>
+                </div>
+            </div>
+        </a>
+
+        <a class="post post-3" href="#">
+            <div class="postbg">
+                <div class="postbanner">
+                    <div class="title">The Xbox project Scorpio release date announced.</div>
+                    <div class="tags">
+                        <span>Technology</span>
+                        <span class="fa fa-circle"></span>
+                        <span>Gaming</span>
+                    </div>
+                    <div class="date">18 May 2020</div>
+                </div>
+            </div>
+        </a>
+
+        <a class="post post-4" href="#">
+            <div class="postbg">
+                <div class="postbanner">
+                    <div class="title">The Xbox project Scorpio release date announced.</div>
+                    <div class="tags">
+                        <span>Technology</span>
+                        <span class="fa fa-circle"></span>
+                        <span>Gaming</span>
+                    </div>
+                    <div class="date">18 May 2020</div>
+                </div>
+            </div>
+        </a>
+
+    </div><!-- Latest End-->
+
 
     <?php require_once("../includes/footer.php"); ?>
 
