@@ -21,7 +21,7 @@
     <?php require_once("../../includes/cms/nav.php"); ?>
 
     <div class="main">
-        test
+        
     </div>
 
 </body>
