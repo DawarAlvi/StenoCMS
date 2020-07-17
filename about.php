@@ -18,8 +18,8 @@
 
 <body>
 
-    <?php require_once("../includes/functions.php"); ?>
-    <?php require_once("../includes/nav.php"); ?>
+    <?php require_once("includes/functions.php"); ?>
+    <?php require_once("includes/nav.php"); ?>
     <?php echo (get_banner("About", "Know The Project & The People")); ?>
 
     <h1>What is Steno CMS?</h1>
@@ -35,7 +35,7 @@
     <h1>Meet the Team.</h1>
     <p>The team behind the Steno CMS project is made up of four hardworking individuals from Kashmir. They started Steno CMS as a college project. Their love for technology and aim for making it accessible to more people is what motivated this project.</p>
 
-    <?php require_once("../includes/footer.php"); ?>
+    <?php require_once("includes/footer.php"); ?>
 
 </body>
 

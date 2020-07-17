@@ -18,8 +18,8 @@
 
 <body>
 
-    <?php require_once("../includes/functions.php"); ?>
-    <?php require_once("../includes/nav.php"); ?>
+    <?php require_once("includes/functions.php"); ?>
+    <?php require_once("includes/nav.php"); ?>
     <?php echo (get_banner("Contact", "Get In Touch With Us")); ?>
 
     <form class="contact-form" action="" method="post">
@@ -35,7 +35,7 @@
         <input type="submit" value="Send">
     </form>
 
-    <?php require_once("../includes/footer.php"); ?>
+    <?php require_once("includes/footer.php"); ?>
 
 </body>
 

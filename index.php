@@ -13,12 +13,12 @@
     <link rel="stylesheet" href="css/custom/index.php" type="text/css">
 
     <!--FAVICONS-->
-    <link rel="icon" type="image/x-icon" href="img/steno_logo.png">
+    <link rel="icon" type="image/x-icon" href="public/img/steno_logo.png">
 </head>
 
 <body>
-    <?php require_once("../includes/functions.php"); ?>
-    <?php require_once("../includes/nav.php"); ?>
+    <?php require_once("includes/functions.php"); ?>
+    <?php require_once("includes/nav.php"); ?>
 
     <?php echo (get_banner()); ?>
 
@@ -158,7 +158,7 @@
     </div><!-- Latest End-->
 
 
-    <?php require_once("../includes/footer.php"); ?>
+    <?php require_once("includes/footer.php"); ?>
 
 </body>
 

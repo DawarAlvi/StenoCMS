@@ -18,8 +18,8 @@
 
 <body>
 
-    <?php require_once("../includes/functions.php"); ?>
-    <?php require_once("../includes/nav.php"); ?>
+    <?php require_once("includes/functions.php"); ?>
+    <?php require_once("includes/nav.php"); ?>
     <?php echo (get_banner("Categories", "Find Something You Like")); ?>
     <div class="categories">
         <a href="#" class="category">
@@ -54,7 +54,7 @@
     </div>
 
 
-    <?php require_once("../includes/footer.php"); ?>
+    <?php require_once("includes/footer.php"); ?>
 
 </body>
 
