@@ -13,12 +13,12 @@
     <link rel="stylesheet" href="../css/custom/cms/index.php" type="text/css">
 
     <!--FAVICONS-->
-    <link rel="icon" type="image/x-icon" href="../img/steno_logo.png">
+    <link rel="icon" type="image/x-icon" href="img/steno_logo.png">
 </head>
 
 <body>
-    <?php require_once("../../includes/functions.php"); ?>
-    <?php require_once("../../includes/cms/nav.php"); ?>
+    <?php require_once("../includes/functions.php"); ?>
+    <?php require_once("../includes/cms/nav.php"); ?>
 
     <div class="main">
         

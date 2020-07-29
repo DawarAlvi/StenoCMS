@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/custom/index.php" type="text/css">
 
     <!--FAVICONS-->
-    <link rel="icon" type="image/x-icon" href="public/img/steno_logo.png">
+    <link rel="icon" type="image/x-icon" href="img/steno_logo.png">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
     <?php echo (get_banner()); ?>
 
     <!-- Popular posts -->
-    <h1><a href="#">Popular <span class="fa fa-angle-right"></span></a></h1>
+    <h1><a href="#">Popular <span class="fas fa-angle-right"></span></a></h1>
 
     <div class="popularposts">
 
@@ -33,7 +33,7 @@
                     <div class="title">The Xbox project Scorpio release date announced.</div>
                     <div class="tags">
                         <span>Technology</span>
-                        <span class="fa fa-circle"></span>
+                        <span class="fas fa-circle"></span>
                         <span>Gaming</span>
                     </div>
                     <div class="date">18 May 2020</div>
@@ -47,7 +47,7 @@
                     <div class="title">The Xbox project Scorpio release date announced.</div>
                     <div class="tags">
                         <span>Technology</span>
-                        <span class="fa fa-circle"></span>
+                        <span class="fas fa-circle"></span>
                         <span>Gaming</span>
                     </div>
                     <div class="date">18 May 2020</div>
@@ -61,7 +61,7 @@
                     <div class="title">The Xbox project Scorpio release date announced.</div>
                     <div class="tags">
                         <span>Technology</span>
-                        <span class="fa fa-circle"></span>
+                        <span class="fas fa-circle"></span>
                         <span>Gaming</span>
                     </div>
                     <div class="date">18 May 2020</div>
@@ -72,7 +72,7 @@
     </div><!-- popularposts End -->
 
     <!-- Categories -->
-    <h1><a href="categories.php">Categories <span class="fa fa-angle-right"></span></a></h1>
+    <h1><a href="categories.php">Categories <span class="fas fa-angle-right"></span></a></h1>
 
     <div class="categories">
 
@@ -95,7 +95,7 @@
     </div><!-- Categories End -->
 
     <!-- Latest posts -->
-    <h1><a href="#">Latest <span class="fa fa-angle-right"></span></a></h1>
+    <h1><a href="#">Latest <span class="fas fa-angle-right"></span></a></h1>
 
     <div class="latestposts">
 
@@ -105,7 +105,7 @@
                     <div class="title">The Xbox project Scorpio release date announced.</div>
                     <div class="tags">
                         <span>Technology</span>
-                        <span class="fa fa-circle"></span>
+                        <span class="fas fa-circle"></span>
                         <span>Gaming</span>
                     </div>
                     <div class="date">18 May 2020</div>
@@ -119,7 +119,7 @@
                     <div class="title">The Xbox project Scorpio release date announced.</div>
                     <div class="tags">
                         <span>Technology</span>
-                        <span class="fa fa-circle"></span>
+                        <span class="fas fa-circle"></span>
                         <span>Gaming</span>
                     </div>
                     <div class="date">18 May 2020</div>
@@ -133,7 +133,7 @@
                     <div class="title">The Xbox project Scorpio release date announced.</div>
                     <div class="tags">
                         <span>Technology</span>
-                        <span class="fa fa-circle"></span>
+                        <span class="fas fa-circle"></span>
                         <span>Gaming</span>
                     </div>
                     <div class="date">18 May 2020</div>
@@ -147,7 +147,7 @@
                     <div class="title">The Xbox project Scorpio release date announced.</div>
                     <div class="tags">
                         <span>Technology</span>
-                        <span class="fa fa-circle"></span>
+                        <span class="fas fa-circle"></span>
                         <span>Gaming</span>
                     </div>
                     <div class="date">18 May 2020</div>
