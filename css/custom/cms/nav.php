@@ -30,11 +30,9 @@ hr {
 }
 
 
-
 nav {
     background: <?php echo($dark) ?>;
     color:white;
-    
 }
     .userinfo {
         background-color: <?php echo($highlight) ?>;
@@ -42,7 +40,12 @@ nav {
     }
     .userinfo h1 {
         margin:0;
+		transition: 0.2s all;
     }
+	.userinfo h1:hover {
+		letter-spacing: 1px;
+    }
+
 
     nav > input {
         position:absolute;
@@ -79,8 +82,17 @@ nav {
     overflow:hidden;
     transition: .2s max-height ease-in;
 }
+.menu li {
+	transition: 0.2s all;
+}
+.menu li:hover {
+	letter-spacing: 1px;
+}
 nav > input:checked ~ .menu {
     max-height: 500px;
+}
+.current {
+	border-left:4px solid <?php echo($highlight) ?>;
 }
 
 
@@ -92,6 +104,8 @@ nav > input:checked ~ .menu {
         grid-template-columns: 1fr 5fr;
     }
     nav {
+		position: fixed;
+		min-width: 15vw;
         min-height:100vh;
     }
     nav > input, nav #menu-icon {

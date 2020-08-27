@@ -2,6 +2,12 @@
 <?php require_once("base.php") ?>
 
 /* --*-- mobile first --*-- */
+.banner {
+	height:16.6em;
+	background: <?php file_exists("../../img/banner/categories.jpg")?print("url(\"../../img/banner/categories.jpg\")"):print("url(\"../../img/banner/default.jpg\")") ?> center center no-repeat;
+	background-size: cover;
+}
+
 .categories {
     display:flex;
     flex-direction: column;
@@ -29,6 +35,9 @@
 
 /* --*-- Tablet Media Query --*-- */
 @media (min-width:550px) {
+	.banner{
+        height:32em;
+    }
     .categories {
         display:grid;
         grid-template-columns: repeat(2,1fr);

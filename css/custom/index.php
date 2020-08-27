@@ -2,6 +2,12 @@
 <?php require_once("base.php") ?>
 
 /* --*-- mobile first --*-- */
+.banner {
+	height:16.6em;
+	background: <?php file_exists("../../img/banner/index.jpg")?print("url(\"../../img/banner/index.jpg\")"):print("url(\"../../img/banner/default.jpg\")") ?> center center no-repeat;
+	background-size: cover;
+}
+
 h1 {
     text-align: center;
 }
@@ -93,6 +99,9 @@ h1 a:hover, h1 a:focus {
 
 /* --*-- Tablet Media Query --*-- */
 @media (min-width:550px){
+	.banner{
+        height:32em;
+    }
     .popularposts, .latestposts {
         display: grid;
         /* grid-template-columns:repeat(2,auto); */

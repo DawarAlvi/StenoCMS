@@ -75,12 +75,7 @@ nav {
         }
 
 
-
-.banner {
-    height:21em;
-    background: #4b4b4b url("../../img/index/1.jpg") center center no-repeat;
-    background-size: cover;
-}
+/*Banner*/
     .strip {
         position:relative;
         top:6em;
@@ -118,30 +113,26 @@ nav {
         padding:0 2em;
     }
 
-
-    .banner{
-        height:30em;
-    }
-    .strip{
-        top:5.5em;
-        width:60%;
-        width:fit-content;
-        max-width: 30em;
-        border-radius: 4px;
-    }
-    .strip .logo{
-        display: block;
-        height:150px;
-        width:150px;
-        margin: 0 auto 1.5em auto;
-    }
-    .strip .title {
-        font-size:3em;
-    }
-    .strip .caption{
-        font-size:1.2em;
-        display: block;
-    }
+		.strip{
+			top:5.5em;
+			width:60%;
+			width:fit-content;
+			min-width: 30em;
+			border-radius: 4px;
+		}
+			.strip .logo{
+				display: block;
+				height:150px;
+				width:150px;
+				margin: 0 auto 1.5em auto;
+			}
+			.strip .title {
+				font-size:3em;
+			}
+			.strip .caption{
+				font-size:1.2em;
+				display: block;
+			}
 }
 /* --*-- Tablet Media Query Ends --*-- */
 

@@ -3,6 +3,12 @@
 <?php require_once("base.php") ?>
 
 /* --*-- mobile first --*-- */
+.banner {
+	height:16.6em;
+	background: <?php file_exists("../../img/banner/about.jpg")?print("url(\"../../img/banner/about.jpg\")"):print("url(\"../../img/banner/default.jpg\")") ?> center center no-repeat;
+	background-size: cover;
+}
+
 h1 {
     margin:1em;
 }
@@ -30,6 +36,9 @@ p, .features{
 
 /* --*-- Tablet Media Query --*-- */
 @media (min-width:550px){
+	.banner{
+        height:32em;
+    }
     .features {
         display: grid;
         grid-template-columns: 1fr 1fr;

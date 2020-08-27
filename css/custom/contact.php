@@ -3,6 +3,12 @@
 <?php require_once("base.php") ?>
 
 /* --*-- mobile first --*-- */
+.banner {
+	height:16.6em;
+	background: <?php file_exists("../../img/banner/contact.jpg")?print("url(\"../../img/banner/contact.jpg\")"):print("url(\"../../img/banner/default.jpg\")") ?> center center no-repeat;
+	background-size: cover;
+}
+
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -31,6 +37,9 @@
 
 /* --*-- Tablet Media Query --*-- */
 @media (min-width:550px){
+	.banner{
+        height:32em;
+    }
     .contact-form {
         padding: 3em;
     }
