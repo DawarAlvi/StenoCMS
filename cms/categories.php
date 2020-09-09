@@ -33,10 +33,31 @@
 				<label>Banner Categories Caption</label> <input type="text">
 			</div>
 			
+			<div class="section">
+				<h2>Categories <button class="btn btn-confirm" title="Add New Category">Add</button></h2>
+				
+				<label>Technology</label>
+				<button class="btn btn-confirm" onclick="" title="Edit Category">Edit</button>
+				<button class="btn btn-cancel" onclick="" title="Delete Category">Delete</button>
+				
+				<label>Wallpapers</label>
+				<button class="btn btn-confirm" onclick="" title="Edit Category">Edit</button>
+				<button class="btn btn-cancel" onclick="" title="Delete Category">Delete</button>
+				
+				<label>Laptops</label>
+				<button class="btn btn-confirm" onclick="" title="Edit Category">Edit</button>
+				<button class="btn btn-cancel" onclick="" title="Delete Category">Delete</button>
+				
+				<label>Nature</label>
+				<button class="btn btn-confirm" onclick="" title="Edit Category">Edit</button>
+				<button class="btn btn-cancel" onclick="" title="Delete Category">Delete</button>
+
+			</div>
+			
 			
 			<div class="section-last">
-				<button class="btn btn-cancel" onclick="window.location.reload()" title="Discard changes">cancel</button>
-				<input type="submit" value="save" class="btn btn-confirm"title="Save changes">
+				<button class="btn btn-cancel" onclick="window.location.reload()" title="Discard Changes">cancel</button>
+				<input type="submit" value="save" class="btn btn-confirm"title="Save Changes">
 			</div>
 			
 			

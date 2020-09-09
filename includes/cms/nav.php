@@ -26,7 +26,7 @@
         <li><a href="links.php"><span class="fas fa-link <?php is_current("links") ?>"></span>Links</a></li>
         <hr>
         <li><a href="view_posts.php"><span class="fas fa-eye <?php is_current("view_posts") ?>"></span>View Posts</a></li>
-        <li><a href="create_posts.php"><span class="fas fa-pen <?php is_current("create_post") ?>"></span>Create Post</a></li>
+        <li><a href="create_post.php"><span class="fas fa-pen <?php is_current("create_post") ?>"></span>Create Post</a></li>
         <hr>
         <li><a href="view_authors.php"><span class="fas fa-user <?php is_current("view_authors") ?>"></span>View Authors</a></li>
         <li><a href="add_author.php"><span class="fas fa-plus <?php is_current("add_author") ?>"></span>Add Author</a></li>

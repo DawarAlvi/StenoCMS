@@ -41,7 +41,7 @@ nav {
     background-color: <?php echo($dark_alpha); ?>;
     position:fixed;
     width:100%;
-    display:flex;
+    
     align-items:center;
     z-index:1000;
 
@@ -49,12 +49,11 @@ nav {
     transition:background-color 0.5s ease-in-out;
 }
     nav a {
-        display:inline-block;
         padding:0 0.4em;
-
         color:<?php echo($light); ?>;
-        
         line-height:2.5em;
+		display: block;
+		
         /* line-height is changed in js */
         transition: line-height 0.5s ease-in-out;
     }
@@ -65,20 +64,28 @@ nav {
 
     nav ul {
         padding:0;
-        
-        width:fit-content;
-        margin:auto auto;
+		display: none;
     }
         nav ul li {
             list-style: none;
-            display:inline-block;
         }
-
+	nav #toggle {
+		background-color: #000000aa;
+		font-size: 2em;
+		padding: 2px 5px;
+		border-radius: 4px;
+		position: absolute;
+		right:.5em;
+		top: .5em;
+		z-index: 2;
+		color: <?php echo($light); ?>;
+		cursor: pointer;
+	}
 
 /*Banner*/
     .strip {
         position:relative;
-        top:6em;
+        top:4.5em;
         margin:auto auto;
         background:#00000077;
         line-height:3.5em;
@@ -139,15 +146,38 @@ nav {
 /* --*-- Desktop Media Query --*-- */
 @media (min-width:980px) {
 
+	nav {
+		display:flex;
+	}
+	nav ul {
+		margin:auto auto;
+		display: block;
+	}
     nav a{
         padding:0 4em;
     }
+		nav ul li {
+			display:inline-block;
+		}
+	nav #toggle {
+		display: none;
+	}
+	
     .strip .title {
         font-size:4em;
     }
 
 }
 /* --*-- Desktop Media Query Ends --*-- */
+
+
+
+
+
+
+
+
+
 
 
 

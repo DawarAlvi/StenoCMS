@@ -14,6 +14,9 @@
 
     <!--FAVICONS-->
     <link rel="icon" type="image/x-icon" href="../img/steno_logo.png">
+	
+	<!-- SCRIPTS -->
+	<script src="ckeditor/ckeditor.js"></script>
 </head>
 
 <body>
@@ -22,7 +25,7 @@
     <?php require_once("../includes/cms/nav.php"); ?>
 
     <div class="main">
-        <form>
+        <form method="post">
 			<div class="section">
 				<h2>Banner</h2>
 				<label>Banner About Background</label> <input type="file">
@@ -32,6 +35,29 @@
 				
 				<label>Banner About Caption</label> <input type="text">
 			</div>
+			
+			<div class="section">
+				<h2>Section Top</h2>				
+				<label>Section Title</label> <input type="text">
+				<label>Section Content</label> <textarea name="section-top-content">Default Text</textarea>
+			</div>
+			
+			<div class="section">
+				<h2>Section Feature</h2>	
+				<label>Show This Section</label> <input type="checkbox">
+				<label>Item 1</label> <input type="text">
+				<label>Item 2</label> <input type="text">
+				<label>Item 3</label> <input type="text">
+				<label>Item 4</label> <input type="text">
+			</div>
+			
+			<div class="section">
+				<h2>Section Bottom</h2>
+				<label>Show This Section</label> <input type="checkbox">				
+				<label>Section Title</label> <input type="text">
+				<label>Section Content</label> <textarea name="section-bottom-content">Default Text</textarea>
+			</div>
+			
 			
 			
 			<div class="section-last">
@@ -43,6 +69,11 @@
 		</form>
     </div>
 
+
+	<script>
+		CKEDITOR.replace("section-top-content");
+		CKEDITOR.replace("section-bottom-content");
+	</script>
 </body>
 
 </html>
