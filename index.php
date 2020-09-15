@@ -72,7 +72,7 @@
     </div><!-- popularposts End -->
 
     <!-- Categories -->
-    <h1><a href="categories.php">Categories <span class="fas fa-angle-right"></span></a></h1>
+    <h1><a href="categories">Categories <span class="fas fa-angle-right"></span></a></h1>
 
     <div class="categories">
 

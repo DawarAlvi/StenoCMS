@@ -13,11 +13,11 @@
 
     <div class="footer-nav-links">
         <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="categories.php">Categories</a></li>
-            <li><a href="about.php">About</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="login.php">Login</a></li>
+            <li><a href="index">Home</a></li>
+            <li><a href="categories">Categories</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="contact">Contact</a></li>
+            <li><a href="login">Login</a></li>
         </ul>
     </div>
 </footer>

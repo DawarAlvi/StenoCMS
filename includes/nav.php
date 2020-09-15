@@ -37,9 +37,9 @@
 <nav>
 	<span id="toggle" class="fas fa-bars" onclick="toggleMenu();"></span>
     <ul>
-        <li><a href="index.php">HOME</a></li>
-        <li><a href="categories.php">CATEGORIES</a></li>
-        <li><a href="about.php">ABOUT</a></li>
-        <li><a href="contact.php">CONTACT</a></li>
+        <li><a href="index">HOME</a></li>
+        <li><a href="categories">CATEGORIES</a></li>
+        <li><a href="about">ABOUT</a></li>
+        <li><a href="contact">CONTACT</a></li>
     </ul>
 </nav>

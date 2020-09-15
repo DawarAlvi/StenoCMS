@@ -18,64 +18,26 @@
 
 <body>
     <?php require_once("../includes/functions.php"); ?>
-	<?php $nav_current = "navbar"; ?>
+	<?php $nav_current = "add_author"; ?>
     <?php require_once("../includes/cms/nav.php"); ?>
 
     <div class="main">
         <form>
 			<div class="section">
-				<h2>Default</h2>
-				<label>HOME</label> <input type="checkbox">
-				<label>CATEGORIES</label> <input type="checkbox">
-				<label>ABOUT</label> <input type="checkbox">
-				<label>CONTACT</label> <input type="checkbox">
+				<h2>Create New Author</h2>
+				<label>Username *</label> <input type="text" required>
+				<label>Display Name *</label> <input type="text" required>
+				<label>Email *</label> <input type="text" required>
+				<label>Password *</label> <input type="password" required>
+				<label>Retype Password *</label> <input type="password" required>
+				<label>Make Admin</label> <input type="checkbox">
 			</div>			
 			
-			<div class="section">
-				<h2>Categories</h2>
-				<label>Tech</label> <input type="checkbox">
-				<label>Laptops</label> <input type="checkbox">
-				<label>News</label> <input type="checkbox">
-				<label>Smart Phones</label> <input type="checkbox">
-			</div>
-			
-			
-			
 			<div class="section-last">
-				<button class="btn btn-cancel" onclick="window.location.reload()" title="Discard changes">cancel</button>
-				<input type="submit" value="save" class="btn btn-confirm"title="Save changes">
+				<input type="submit" value="Create" class="btn btn-confirm"title="Create New Author">
 			</div>
 		</form>
 	</div>
 	
-	
-	
-
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2>Dawar Alvi</h2>
-	  <a href="mailto:abc@test.com">abc@test.com</a>
-    </div>
-    <div class="modal-body">
-      <p>Some text in the Modal Body. Test modal text in the modal box made for testing the modal box.</p>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-cancel" onclick="" title="Delete This Message">Delete</button>
-    </div>
-  </div>
-
-</div>
-
-<script src="../js/custom/modal.js"></script>
-
-
-
-
 </body>
 </html>

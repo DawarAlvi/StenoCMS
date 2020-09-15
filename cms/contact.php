@@ -55,9 +55,6 @@
 			</div>
 		</form>
 	</div>
-	
-	
-	
 
 
 <!-- The Modal -->
@@ -81,8 +78,6 @@
 </div>
 
 <script src="../js/custom/modal.js"></script>
-
-
 
 
 </body>

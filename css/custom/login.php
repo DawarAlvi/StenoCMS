@@ -3,7 +3,7 @@
 
 /* --*-- mobile first --*-- */
 .login {
-    background: #4b4b4b url("../../img/index/1.jpg") center center no-repeat;
+    background: #4b4b4b url("../../img/banner/default.jpg") center center no-repeat;
 }
     .login form {
         display: flex;

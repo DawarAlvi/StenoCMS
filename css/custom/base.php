@@ -39,7 +39,7 @@ a {
 /* --*-- mobile first --*-- */
 nav {
     background-color: <?php echo($dark_alpha); ?>;
-    position:fixed;
+    position: fixed;
     width:100%;
     
     align-items:center;
@@ -50,7 +50,7 @@ nav {
 }
     nav a {
         padding:0 0.4em;
-        color:<?php echo($light); ?>;
+        color: <?php echo($light); ?>;
         line-height:2.5em;
 		display: block;
 		
@@ -58,7 +58,7 @@ nav {
         transition: line-height 0.5s ease-in-out;
     }
     nav a:hover, nav a:focus {
-        color:<?php echo($highlight); ?>;
+        color: <?php echo($highlight); ?>;
         transition: color 0.2s ease-in-out;
     }
 
@@ -75,7 +75,7 @@ nav {
 		padding: 2px 5px;
 		border-radius: 4px;
 		position: absolute;
-		right:.5em;
+		right: .5em;
 		top: .5em;
 		z-index: 2;
 		color: <?php echo($light); ?>;

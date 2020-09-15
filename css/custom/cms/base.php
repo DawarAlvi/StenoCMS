@@ -39,9 +39,15 @@
 	background:green;
 }
 
-label, input, button {
+label, input, button{
 	margin: .5em 0;
+	line-height: 3em;
 }
+select {
+	height: 3em;
+	border-radius:4px;
+}
+
 
 
 
