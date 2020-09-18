@@ -12,7 +12,7 @@
     </div>
 
     <input type="checkbox" onclick="toggleIcon();">
-    <span class="fas fa-bars" id="menu-icon"></span>
+    <span class="fal fa-bars" id="menu-icon"></span>
 
 	<?php if(!isset($nav_current)) $nav_current = "" ?>
 

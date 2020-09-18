@@ -37,7 +37,7 @@
 <?php $nav_categories = get_categories_nav_info() ?>
 
 <nav>
-	<span id="toggle" class="fas fa-bars" onclick="toggleMenu();"></span>
+	<span id="toggle" class="fal fa-bars" onclick="toggleMenu();"></span>
     <ul>
         <!-- main pages-->
         <?php  mysqli_fetch_assoc($main_pages)["show_on_nav"] ? print("<li><a href=\"index\">HOME</a></li>"):print("");?>

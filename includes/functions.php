@@ -108,6 +108,15 @@
         return $result;
     }
 
+    function get_post_by_id($id) {
+        global $connection;
+        $query = "SELECT * from `posts` WHERE `id` = " . $id;
+        $result = mysqli_query($connection, $query);
+        $result = mysqli_fetch_assoc($result);
+        
+        return $result;
+    }
+
     function sanitize_input($input) {
         return htmlspecialchars(stripslashes(trim($input)));
     }

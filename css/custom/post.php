@@ -4,7 +4,7 @@
 /* --*-- mobile first --*-- */
 
 .img-main {
-	background: url(../../img/posts/default.jpg) center center no-repeat;
+	background: url(../../img/posts/<?php print($_GET['q'] .'/0') ?>.jpg) center center no-repeat;
 	background-size: cover;
 	margin: 0 auto;
 	overflow: hidden;
@@ -60,6 +60,7 @@
 	.wrapper {
 		display: grid;
 		gap: 1em;
+		padding: 1em;
 		grid-template-columns:2fr 1fr;
 	}
 	.img-main {
@@ -67,8 +68,8 @@
 		margin:0;
 	}
 	.title {
-		margin-top: 2em;
 		font-size: 3em;
+		align-self: center;
 	}
 	.date {
 		grid-column: 1/2;

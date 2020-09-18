@@ -1,18 +1,38 @@
+<?php
+    if(!isset($_GET['q'])) {
+        header("Location: index");
+        die();
+    }
+?>
 <?php require_once("includes/db_connect.php"); ?>
 <?php require_once("includes/functions.php"); ?>
+<?php
+    $post_id = sanitize_input($_GET['q']);
+    $post = get_post_by_id($post_id);
+
+    if(is_null($post)) {
+        header("Location: index");
+        die();
+    }
+
+    $post_title = $post['title'];
+
+    $banner_info = get_banner_info("home");
+    $title = $banner_info["title"];
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Post</title>
+    <title><?php echo($title) ?></title>
 
     <!-- STYLES -->
     <link rel="stylesheet" href="css/all.min.css" type="text/css">
-    <link rel="stylesheet" href="css/custom/post.php" type="text/css">
+    <link rel="stylesheet" href="css/light.min.css" type="text/css">
+    <link rel="stylesheet" href="css/custom/post.php?q=<?php print($post_id) ?>" type="text/css">
 
     <!--FAVICONS-->
     <link rel="icon" type="image/x-icon" href="img/steno_logo.png">
@@ -23,7 +43,7 @@
 
 	<div class="wrapper">
 		<div class="img-main"></div>
-		<h1 class="title">Top holiday destinations in the pandemic. No. 5 will not surprise you!</h1>
+		<h1 class="title"><?php echo($post_title) ?></h1>
 		<p class="author-name">John Doe</p>
 		
 		
