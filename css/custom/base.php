@@ -22,7 +22,7 @@ body {
     padding:0;
     position:relative;
     min-height:100%;
-    background: #eee;
+    background: #ccc;
     font-family:'Raleway','Inter',sans-serif;
 }
 h1 {
@@ -98,14 +98,12 @@ nav {
             height:100px;Technology
         }
         .strip .title {
-            width:fit-content;
             margin:auto auto;
             font-size:2em;
             color:<?php echo($light); ?>;
             font-family: 'Sarina','Raleway','Inter',monospace;
         }
         .strip .caption {
-            width:fit-content;
             margin: 1em auto 0 auto;
             font-size:1.2em;
             font-family:'Raleway','Inter',sans-serif;
@@ -122,8 +120,7 @@ nav {
 
 		.strip{
 			top:5.5em;
-			width:60%;
-			width:fit-content;
+			width:40%;
 			min-width: 30em;
 			border-radius: 4px;
 		}
@@ -242,6 +239,9 @@ footer{
     .footer-nav-links li{
         display:inline;
         list-style-type: none;
+    }
+    .footer-nav-links ul {
+        padding: 0;
     }
     .footer-nav-links li a{
         color:#fff;

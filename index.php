@@ -1,12 +1,29 @@
+<?php require_once("includes/db_connect.php"); ?>
+<?php require_once("includes/functions.php"); ?>
+
+<?php
+    $banner_info = get_banner_info("home");
+    $title = $banner_info["title"];
+    $caption = $banner_info["caption"];
+
+    $homepage_info = get_homepage_info();
+    $show_popular = mysqli_fetch_assoc($homepage_info)["show"];
+    $show_categories = mysqli_fetch_assoc($homepage_info)["show"];
+    $show_latest = mysqli_fetch_assoc($homepage_info)["show"];
+
+    $popular_posts = get_popular(3);
+    $categories = get_categories(4,true);
+    $latest_posts = get_latest(4);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Steno | Home</title>
+    <title><?php echo($title) ?></title>
 
     <!-- STYLES -->
     <link rel="stylesheet" href="css/all.min.css" type="text/css">
@@ -17,149 +34,109 @@
 </head>
 
 <body>
-    <?php require_once("includes/functions.php"); ?>
     <?php require_once("includes/nav.php"); ?>
-
-    <?php echo (get_banner()); ?>
+    <?php echo (get_banner($title, $caption)); ?>
 
     <!-- Popular posts -->
-    <h1><a href="#">Popular <span class="fas fa-angle-right"></span></a></h1>
+    <?php 
+        if( $show_popular){
+            echo('
+            <h1><a href="categories?q=popular">Popular <span class="fas fa-angle-right"></span></a></h1>
 
-    <div class="popularposts">
+            <div class="popularposts">
+            ');
+        
+            while($popular_post = mysqli_fetch_assoc($popular_posts)) {
+                $date = new DateTime($popular_post["date"]);
+                $date = $date -> format("d M Y");
+                $post_categories = get_post_categories($popular_post["id"]);
 
-        <a class="post" href="#">
-            <div class="postbg">
-                <div class="postbanner">
-                    <div class="title">The Xbox project Scorpio release date announced.</div>
-                    <div class="tags">
-                        <span>Technology</span>
-                        <span class="fas fa-circle"></span>
-                        <span>Gaming</span>
-                    </div>
-                    <div class="date">18 May 2020</div>
-                </div>
-            </div>
-        </a>
-
-        <a class="post" href="#">
-            <div class="postbg">
-                <div class="postbanner">
-                    <div class="title">The Xbox project Scorpio release date announced.</div>
-                    <div class="tags">
-                        <span>Technology</span>
-                        <span class="fas fa-circle"></span>
-                        <span>Gaming</span>
-                    </div>
-                    <div class="date">18 May 2020</div>
-                </div>
-            </div>
-        </a>
-
-        <a class="post" href="#">
-            <div class="postbg">
-                <div class="postbanner">
-                    <div class="title">The Xbox project Scorpio release date announced.</div>
-                    <div class="tags">
-                        <span>Technology</span>
-                        <span class="fas fa-circle"></span>
-                        <span>Gaming</span>
-                    </div>
-                    <div class="date">18 May 2020</div>
-                </div>
-            </div>
-        </a>
-
-    </div><!-- popularposts End -->
+                echo('
+                    <a class="post" href="post?q=' . $popular_post["id"] . '">
+                        <div class="postbg postbg-' . $popular_post["id"] . '">
+                            <div class="postbanner">
+                                <div class="title">' . $popular_post["title"] . '</div>
+                                <div class="tags">
+                                '); 
+                                foreach($post_categories as $category) {
+                                    echo('
+                                    <span href="categoies/?q=' . 
+                                    $category . 
+                                    '">'. $category . 
+                                    '</span>'
+                                );
+                                }
+                                echo('
+                                </div>
+                                <div class="date">' . $date . '</div>
+                            </div>
+                        </div>
+                    </a>
+                ');
+            }
+            echo('</div> <!-- popularposts End -->');
+        }
+    ?>
 
     <!-- Categories -->
-    <h1><a href="categories">Categories <span class="fas fa-angle-right"></span></a></h1>
+    <?php
+        if($show_categories) {
+            echo('<h1><a href="categories">Categories <span class="fas fa-angle-right"></span></a></h1>
+            <div class="categories">
+            ');
 
-    <div class="categories">
-
-        <a href="#" class="category">
-            <span>Technology</span>
-        </a>
-
-        <a href="#" class="category">
-            <span>Science</span>
-        </a>
-
-        <a href="#" class="category">
-            <span>Nature</span>
-        </a>
-
-        <a href="#" class="category">
-            <span>Photography</span>
-        </a>
-
-    </div><!-- Categories End -->
+            while($category = mysqli_fetch_assoc($categories)) {
+                echo('
+                <a href="categories?q=' . $category["id"] . '" class="category category-' . $category["id"] . '">
+                    <span>' . $category["name"] . '</span>
+                </a>
+                ');
+            }
+            echo('</div><!-- Categories End -->');
+        }
+    ?>
 
     <!-- Latest posts -->
-    <h1><a href="#">Latest <span class="fas fa-angle-right"></span></a></h1>
-
-    <div class="latestposts">
-
-        <a class="post post-1" href="#">
-            <div class="postbg">
-                <div class="postbanner">
-                    <div class="title">The Xbox project Scorpio release date announced.</div>
-                    <div class="tags">
-                        <span>Technology</span>
-                        <span class="fas fa-circle"></span>
-                        <span>Gaming</span>
+    <?php
+        if($show_latest) {
+            echo('<h1><a href="categories?q=latest">Latest <span class="fas fa-angle-right"></span></a></h1>
+            <div class="latestposts">
+            ');
+            
+            $post_no = 1;
+            while($latest_post = mysqli_fetch_assoc($latest_posts)) {
+                $date = new DateTime($latest_post["date"]);
+                $date = $date -> format("d M Y");
+                $post_categories = get_post_categories($latest_post["id"]);
+                echo('
+                <a class="post postbg-' . $latest_post["id"] . ' post-' . $post_no . '" href=post?q=' . $latest_post["id"] . '>
+                    <div class="postbg">
+                        <div class="postbanner">
+                            <div class="title">' . $latest_post["title"] . '</div>
+                            <div class="tags">
+                            '); 
+                            foreach($post_categories as $category) {
+                                echo('
+                                <span href="categoies/?q=' . 
+                                $category . 
+                                '">'. $category . 
+                                '</span>'
+                            );
+                            }
+                            echo('
+                            </div>
+                            <div class="date">' . $date . '</div>
+                        </div>
                     </div>
-                    <div class="date">18 May 2020</div>
-                </div>
-            </div>
-        </a>
+                </a>
+                ');
 
-        <a class="post post-2" href="#">
-            <div class="postbg">
-                <div class="postbanner">
-                    <div class="title">The Xbox project Scorpio release date announced.</div>
-                    <div class="tags">
-                        <span>Technology</span>
-                        <span class="fas fa-circle"></span>
-                        <span>Gaming</span>
-                    </div>
-                    <div class="date">18 May 2020</div>
-                </div>
-            </div>
-        </a>
-
-        <a class="post post-3" href="#">
-            <div class="postbg">
-                <div class="postbanner">
-                    <div class="title">The Xbox project Scorpio release date announced.</div>
-                    <div class="tags">
-                        <span>Technology</span>
-                        <span class="fas fa-circle"></span>
-                        <span>Gaming</span>
-                    </div>
-                    <div class="date">18 May 2020</div>
-                </div>
-            </div>
-        </a>
-
-        <a class="post post-4" href="#">
-            <div class="postbg">
-                <div class="postbanner">
-                    <div class="title">The Xbox project Scorpio release date announced.</div>
-                    <div class="tags">
-                        <span>Technology</span>
-                        <span class="fas fa-circle"></span>
-                        <span>Gaming</span>
-                    </div>
-                    <div class="date">18 May 2020</div>
-                </div>
-            </div>
-        </a>
-
-    </div><!-- Latest End-->
-
+                $post_no++;
+            }
+            echo('</div><!-- Latest End-->');
+        }
+    ?>
 
     <?php require_once("includes/footer.php"); ?>
-
 </body>
-
 </html>

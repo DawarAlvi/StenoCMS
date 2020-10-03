@@ -1,3 +1,5 @@
+<?php require_once("includes/db_connect.php"); ?>
+<?php require_once("includes/functions.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +19,6 @@
 </head>
 
 <body>
-    <?php require_once("includes/functions.php"); ?>
     <?php require_once("includes/nav.php"); ?>
 
     <div class="login">

@@ -1,4 +1,5 @@
 <?php Header("Content-type: text/css; charset: utf-8") ?>
+<?php require_once("../../includes/db_connect.php"); ?>
 <?php require_once("base.php") ?>
 
 /* --*-- mobile first --*-- */
@@ -33,10 +34,18 @@ h1 a:hover, h1 a:focus {
             height: 100%;
             display: flex;
             align-items: flex-end;
-            background: #4b4b4b url("../../img/index/2.jpg") center center no-repeat;
-            background-size: cover;
             transition: transform .3s ease-in-out;
         }
+        <?php 
+            $result = mysqli_query($connection, "SELECT `id` FROM `posts` WHERE `online` = 1");
+            while($post = mysqli_fetch_assoc($result)) {
+                echo("
+                .postbg-" . $post["id"] . " {
+                    background: #4b4b4b url(\"../../img/posts/" . $post["id"] . "/0.jpg\") center center no-repeat;
+                    background-size: cover;
+                }");
+            }
+        ?>
         .post:hover .postbg,
         .post:focus .postbg {
             transform: scale(1.1);
@@ -69,6 +78,13 @@ h1 a:hover, h1 a:focus {
             .post .date {
                 justify-self: end;
             }
+            .post .tags span {
+                background: #111;
+                color: #ddd;
+                border-radius: 2px;
+                padding: 2px;
+                z-index: 10;
+            }
 
 .categories {
     display:grid;
@@ -78,13 +94,23 @@ h1 a:hover, h1 a:focus {
 }
     .category {
         text-align: center;
-        background: url(../../img/index/05.jpg) center center no-repeat;
+        background: url(../../img/categories/default.jpg) center center no-repeat;
         background-size: cover;
         line-height:150px;
         color:black;
     }
+    <?php 
+        $result = mysqli_query($connection, "SELECT `id` FROM `categories` WHERE `show_on_homepage` = 0");
+        while($category = mysqli_fetch_assoc($result)) {
+            echo("
+            .category-" . $category["id"] . " {
+                background: #4b4b4b url(\"../../img/categories/" . $category["id"] . ".jpg\") center center no-repeat;
+                background-size: cover;
+            }");
+        }
+    ?>
         .category span {
-            background-color: #ffffff55;
+            background-color: #ffffff88;
             padding:2px;
             transition: 0.5s all;
         }
@@ -104,8 +130,6 @@ h1 a:hover, h1 a:focus {
     }
     .popularposts, .latestposts {
         display: grid;
-        /* grid-template-columns:repeat(2,auto); */
-        
     }
 
     .categories {

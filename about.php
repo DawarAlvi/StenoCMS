@@ -1,3 +1,6 @@
+<?php require_once("includes/db_connect.php"); ?>
+<?php require_once("includes/functions.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +20,6 @@
 </head>
 
 <body>
-
-    <?php require_once("includes/functions.php"); ?>
     <?php require_once("includes/nav.php"); ?>
     <?php echo (get_banner("About", "Know The Project & The People")); ?>
 
