@@ -100,5 +100,12 @@
         return $result;
     }
 
+    function get_posts_by_category($category_id) {
+        global $connection;
+        $query = "SELECT `posts`.`id`,`posts`.`title`,`posts`.`author_id` , `posts`.`date`, `posts`.`format`, `posts`.`views`, `posts`.`online` FROM `posts` JOIN `post_categories` ON `posts`.`id` = `post_categories`.`post_id` WHERE `category_id` = " . $category_id;
+        $result = mysqli_query($connection, $query);
+        
+        return $result;
+    }
 
 ?>

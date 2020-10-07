@@ -12,7 +12,7 @@
 
 
 /*POPULAR POSTS*/
-.popularposts, .latestposts {
+.popularposts, .latestposts, .posts {
     padding:1em;
     display: grid;
 }
@@ -126,7 +126,7 @@
     }
 
 
-    .popularposts, .latestposts {
+    .popularposts, .latestposts, .posts {
         display: grid;
     }
 
@@ -143,7 +143,7 @@
 
 /* --*-- Desktop Media Query --*-- */
 @media (min-width:980px) {
-    .popularposts, .latestposts {
+    .popularposts, .latestposts, .posts {
         display: grid;
         grid-template-columns: repeat(3,1fr);
         grid-gap: 2em;

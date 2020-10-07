@@ -29,22 +29,57 @@
 
 <body>
     <?php require_once("includes/nav.php"); ?>
-    <?php echo (get_banner($title, $caption)); ?>
     <?php
         if(isset($_GET['q'])) {
             //show posts from specified category
             if(is_numeric($_GET['q'])) {
-                $post_ids = mysqli_query($connection, "SELECT `post_id` FROM `post_categories` WHERE `category_id` = " . $_GET['q']);
+                $posts = get_posts_by_category($_GET['q']);
                 
-                while($post_id = mysqli_fetch_row($post_ids)) {
-                    echo("<pre>");var_dump($post_id);echo("</pre>");
+                //if no result is returned, redirect
+                if(mysqli_num_rows($posts) == 0) header("Location: categories");
+                
+                //banner
+                $category = mysqli_query($connection, "SELECT `name` FROM `categories` WHERE `id` = " . $_GET['q']);
+                $category = mysqli_fetch_assoc($category)["name"];
+                echo (get_banner($category, ""));
+
+                echo('<div class="posts">');
+                while($post = mysqli_fetch_assoc($posts)) {
+                    $date = new DateTime($post["date"]);
+                    $date = $date -> format("d M Y");
+                    $post_categories = get_post_categories($post["id"]);
+    
+                    echo('
+                        <a class="post" href="post?q=' . $post["id"] . '">
+                            <div class="postbg postbg-' . $post["id"] . '">
+                                <div class="postbanner">
+                                    <div class="title">' . $post["title"] . '</div>
+                                    <div class="tags">
+                                    '); 
+                                    foreach($post_categories as $category) {
+                                        echo('
+                                        <span href="categoies/?q=' . 
+                                        $category . 
+                                        '">'. $category . 
+                                        '</span>'
+                                    );
+                                    }
+                                    echo('
+                                    </div>
+                                    <div class="date">' . $date . '</div>
+                                </div>
+                            </div>
+                        </a>
+                    ');
                 }
+                echo('</div>');
             }
             //show all posts by popularity
             elseif ($_GET['q'] === 'popular') {
+                //banner
+                echo (get_banner("Popular", ""));
 
                 echo('<div class="popularposts">');
-
                 while($popular_post = mysqli_fetch_assoc($popular_posts)) {
                     $date = new DateTime($popular_post["date"]);
                     $date = $date -> format("d M Y");
@@ -77,8 +112,10 @@
             }
             //show all posts by recency
             elseif ($_GET['q'] === 'latest') {
-                echo('<div class="latestposts">');
+                //banner
+                echo (get_banner("Latest", ""));
 
+                echo('<div class="latestposts">');
                 while($latest_post = mysqli_fetch_assoc($latest_posts)) {
                     $date = new DateTime($latest_post["date"]);
                     $date = $date -> format("d M Y");
@@ -109,10 +146,12 @@
                 }
                 echo('</div>');
             }
-            
         }
         //show all categories
         else {
+            //banner
+            echo (get_banner($title, $caption));
+
             echo('<div class="categories">');
             while($category = mysqli_fetch_assoc($categories)) {
                 echo('

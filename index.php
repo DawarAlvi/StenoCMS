@@ -14,6 +14,8 @@
     $popular_posts = get_popular(3);
     $categories = get_categories(4,true);
     $latest_posts = get_latest(4);
+
+
 ?>
 
 <!DOCTYPE html>
