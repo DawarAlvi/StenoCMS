@@ -1,5 +1,10 @@
 <?php require_once("includes/db_connect.php"); ?>
 <?php require_once("includes/functions.php"); ?>
+<?php
+    $banner_info = get_banner_info("about");
+    $title = $banner_info["title"];
+    $caption = $banner_info["caption"];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Steno | About</title>
+    <title><?php echo($title) ?></title>
 
     <!-- STYLES -->
     <link rel="stylesheet" href="css/all.min.css" type="text/css">
@@ -21,16 +26,16 @@
 
 <body>
     <?php require_once("includes/nav.php"); ?>
-    <?php echo (get_banner("About", "Know The Project & The People")); ?>
+    <?php echo (get_banner($title, $caption)); ?>
 
     <h1>What is Steno CMS?</h1>
     <p>Steno CMS is a lightweight content management system for online blog publication. Steno CMS assumes no technical knowledge on the part of the user and takes care of the headaches of creating and maintaining a blog site. Apart from basic operations such as creating, retrieving, updating, and deleting posts (CRUD), it also supports multiple authors to help run the blog site in a collaborative manner. Steno CMS employs a novel tagging system to categorize blog posts for easy and fast navigation.</p>
 
     <ul class="features">
-        <li><span class="fas fa-feather"></span>Lightweight</li>
-        <li><span class="fas fa-puzzle-piece"></span>Easy to Use</li>
-        <li><span class="fas fa-pencil-alt"></span>Customizable</li>
-        <li><span class="fas fa-handshake"></span>Collaborative</li>
+        <li><span class="far fa-feather"></span>Lightweight</li>
+        <li><span class="far fa-puzzle-piece"></span>Easy to Use</li>
+        <li><span class="far fa-pencil-alt"></span>Customizable</li>
+        <li><span class="far fa-handshake"></span>Collaborative</li>
     </ul>
 
     <h1>Meet the Team.</h1>

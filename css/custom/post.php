@@ -80,11 +80,5 @@
 		grid-column: 1/2;
 	}
 	
-	.test {
-		background: black;
-		height: 300px;
-		grid-column: 2/3;
-		grid-row: 2;
-	}
 }
 /* --*-- Desktop Media Query Ends --*-- */

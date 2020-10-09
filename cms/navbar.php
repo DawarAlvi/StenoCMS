@@ -10,6 +10,8 @@
 
     <!-- STYLES -->
     <link rel="stylesheet" href="../css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/light.min.css" type="text/css">
+	
     <link rel="stylesheet" href="../css/custom/cms/base.php" type="text/css">
 
     <!--FAVICONS-->

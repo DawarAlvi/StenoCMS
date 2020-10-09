@@ -10,6 +10,8 @@
 
     <!-- STYLES -->
     <link rel="stylesheet" href="../css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/light.min.css" type="text/css">
+	
     <link rel="stylesheet" href="../css/custom/cms/base.php" type="text/css">
 
     <!--FAVICONS-->
@@ -55,27 +57,6 @@
 			</div>
 		</form>
 	</div>
-
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2>Dawar Alvi</h2>
-	  <a href="mailto:abc@test.com">abc@test.com</a>
-    </div>
-    <div class="modal-body">
-      <p>Some text in the Modal Body. Test modal text in the modal box made for testing the modal box.</p>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-cancel" onclick="" title="Delete This Message">Delete</button>
-    </div>
-  </div>
-
-</div>
 
 <script src="../js/custom/modal.js"></script>
 

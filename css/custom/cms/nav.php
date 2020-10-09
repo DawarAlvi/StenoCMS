@@ -1,15 +1,16 @@
 <?php Header("Content-type: text/css; charset: utf-8") ?>
 
 @font-face {
-    font-family: 'Inter';
-    src:url('../../../webfonts/custom/Inter-Regular.ttf') format('truetype');
+    font-family: 'mulish';
+    src:url('../../../webfonts/custom/Muli-Regular.ttf') format('truetype');
 }
 
 body {
     margin:0;
     padding:0;
     background: #eee;
-    font-family: 'Inter', sans-serif;
+    font-family: mulish, sans-serif;
+    font-size: 14px;
 }
 a {
     text-decoration: none;
@@ -69,14 +70,17 @@ nav {
             display:block;
             background: <?php echo($dark) ?>;
             line-height:3em;
+            padding:0 6px;
+            color: #ccc;
         }
         nav li a:hover {
             background: #444;
         }
             nav li a span {
-                min-width:2em;
                 text-align: center;
+                margin:0 1em;
             }
+
 .menu {
     max-height:0;
     overflow:hidden;
@@ -93,6 +97,8 @@ nav > input:checked ~ .menu {
 }
 .current {
 	border-left:4px solid <?php echo($highlight) ?>;
+    background: #444;
+    color: white;
 }
 
 

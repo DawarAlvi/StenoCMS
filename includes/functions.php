@@ -108,4 +108,8 @@
         return $result;
     }
 
+    function sanitize_input($input) {
+        return htmlspecialchars(stripslashes(trim($input)));
+    }
+
 ?>

@@ -14,8 +14,6 @@
     $popular_posts = get_popular(3);
     $categories = get_categories(4,true);
     $latest_posts = get_latest(4);
-
-
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +27,7 @@
 
     <!-- STYLES -->
     <link rel="stylesheet" href="css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="css/light.min.css" type="text/css">
     <link rel="stylesheet" href="css/custom/index.php" type="text/css">
 
     <!--FAVICONS-->
@@ -43,7 +42,7 @@
     <?php 
         if( $show_popular){
             echo('
-            <h1><a href="categories?q=popular">Popular <span class="fas fa-angle-right"></span></a></h1>
+            <h1><a href="categories?q=popular">Popular <span class="fal fa-angle-right"></span></a></h1>
 
             <div class="popularposts">
             ');
@@ -83,7 +82,7 @@
     <!-- Categories -->
     <?php
         if($show_categories) {
-            echo('<h1><a href="categories">Categories <span class="fas fa-angle-right"></span></a></h1>
+            echo('<h1><a href="categories">Categories <span class="fal fa-angle-right"></span></a></h1>
             <div class="categories">
             ');
 
@@ -101,7 +100,7 @@
     <!-- Latest posts -->
     <?php
         if($show_latest) {
-            echo('<h1><a href="categories?q=latest">Latest <span class="fas fa-angle-right"></span></a></h1>
+            echo('<h1><a href="categories?q=latest">Latest <span class="fal fa-angle-right"></span></a></h1>
             <div class="latestposts">
             ');
             

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Steno | Home</title>
+    <title>Post</title>
 
     <!-- STYLES -->
     <link rel="stylesheet" href="css/all.min.css" type="text/css">
@@ -26,7 +26,6 @@
 		<h1 class="title">Top holiday destinations in the pandemic. No. 5 will not surprise you!</h1>
 		<p class="author-name">John Doe</p>
 		
-		<div class="test"></div>
 		
 		<p class="date">5 Aug 2019</p>
 		
