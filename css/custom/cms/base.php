@@ -25,23 +25,30 @@
 	}
 
 .btn {
-	color: #fff;
-	width:5em;
-	line-height: 3em;
-	border:none;
-	border-radius:4px;
+	color: #000;
+	background: #fff ;
+	width:2.5em;
+	line-height: 2.5em;
+	border:1px solid black;
+	border-radius:3px;
 	cursor: pointer;
 }
 .btn-cancel {
-	background:red;
+	color: white;
+	background:#f21;
+	border:1px solid #f21;
+	width:5em;
 }
 .btn-confirm {
-	background:green;
+	color: white;
+	background: #04f;
+	border:1px solid #04f;
+	width:5em;
 }
 
 label, input, button{
 	margin: .5em 0;
-	line-height: 3em;
+	line-height: 2.5em;
 }
 select {
 	height: 3em;

@@ -40,7 +40,7 @@
 
     <!-- Popular posts -->
     <?php 
-        if( $show_popular){
+        if($show_popular){
             echo('
             <h1><a href="categories?q=popular">Popular <span class="fal fa-angle-right"></span></a></h1>
 

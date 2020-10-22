@@ -36,23 +36,23 @@
 			</div>
 			
 			<div class="section">
-				<h2>Categories <button class="btn btn-confirm" title="Add New Category">Add</button></h2>
+				<h2>Categories <button class="btn btn-confirm" title="Add new category"><span class="fal fa-plus"></span></button></h2>
 				
 				<label>Technology</label>
-				<button class="btn btn-confirm" onclick="" title="Edit Category">Edit</button>
-				<button class="btn btn-cancel" onclick="" title="Delete Category">Delete</button>
+				<button class="btn btn-confirm" onclick="" title="Edit category">Edit</button>
+				<button class="btn btn-cancel" onclick="" title="Delete category">Delete</button>
 				
 				<label>Wallpapers</label>
-				<button class="btn btn-confirm" onclick="" title="Edit Category">Edit</button>
-				<button class="btn btn-cancel" onclick="" title="Delete Category">Delete</button>
+				<button class="btn btn-confirm" onclick="" title="Edit category">Edit</button>
+				<button class="btn btn-cancel" onclick="" title="Delete category">Delete</button>
 				
 				<label>Laptops</label>
-				<button class="btn btn-confirm" onclick="" title="Edit Category">Edit</button>
-				<button class="btn btn-cancel" onclick="" title="Delete Category">Delete</button>
+				<button class="btn btn-confirm" onclick="" title="Edit category">Edit</button>
+				<button class="btn btn-cancel" onclick="" title="Delete category">Delete</button>
 				
 				<label>Nature</label>
-				<button class="btn btn-confirm" onclick="" title="Edit Category">Edit</button>
-				<button class="btn btn-cancel" onclick="" title="Delete Category">Delete</button>
+				<button class="btn btn-confirm" onclick="" title="Edit category">Edit</button>
+				<button class="btn btn-cancel" onclick="" title="Delete category">Delete</button>
 
 			</div>
 			
