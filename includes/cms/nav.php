@@ -31,7 +31,7 @@
         <li><a href="view_authors" class="<?php is_current("view_authors") ?>"> <span class="fal fa-user fa-sm"></span>View Authors</a></li>
         <li><a href="add_author"   class="<?php is_current("add_author") ?>">   <span class="fal fa-plus fa-sm"></span>Add Author</a></li>
         <hr>
-        <li><a href="../"><span class="fal fa-globe fa-sm"></span>View Site</a></li>
+        <li><a href="../" target="_blank"><span class="fal fa-globe fa-sm"></span>View Site</a></li>
     </ul>
 
 </nav>

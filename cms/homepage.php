@@ -39,41 +39,50 @@
     <?php require_once("../includes/cms/nav.php"); ?>
 
     <div class="main">
-		<form>
+		<form method="post" action="../action/cms/homepage.php" enctype="multipart/form-data">
 			<div class="section">
 				<h2>Banner</h2>
-				<label>Banner Homepage Background</label> <input type="file" id="bhp_bg">
+				<label>Banner Homepage Background</label> <input type="file" name="banner_homepage_bg" id="bhp_bg">
 				<span>
 					<button type="button" class="btn"  title="Clear" onclick="document.getElementById('bhp_bg').value='';"><span class="fal fa-times"></span></button>
-					<button type="button" class="btn btn-cancel"  title="Use the default image" onclick="">Default</button>
+					<button type="button" class="btn btn-cancel"  title="Use the default image" onclick="alert('Fix me! Use a new tab and implement authentication.');">Default</button>
 				</span>
 
-				<label>Banner Homepage Title</label> <input type="text" value="<?php echo($title) ?>">
+				<label>Banner Homepage Title</label> <input type="text" name="banner_homepage_title" value="<?php echo($title) ?>">
 				
-				<label>Banner Homepage Caption</label> <input type="text" value="<?php echo($caption) ?>">
+				<label>Banner Homepage Caption</label> <input type="text" name="banner_homepage_caption" value="<?php echo($caption) ?>">
 			</div>
 
 			<div class="section">
 				<h2>Branding</h2>
-				<label>Logo Image</label> <input type="file">
-				<button class="btn btn-cancel" onclick="window.location.reload()" title="Use the default image">Default</button>
+				<label>Logo Image</label> <input type="file" name="logo_image" id="bli">
+				<span>
+					<button type="button" class="btn"  title="Clear" onclick="document.getElementById('bli').value='';"><span class="fal fa-times"></span></button>
+					<button type="button" class="btn btn-cancel"  title="Use the default image" onclick="alert('fix me');">Default</button>
+				</span>
+
 				<br>
-				<label>Favicon Image</label> <input type="file">
-				<button class="btn btn-cancel" onclick="window.location.reload()" title="Use the default image">Default</button>
+
+				<label>Favicon Image</label> <input type="file" name="favicon_image" id="bfi">
+				<span>
+					<button type="button" class="btn"  title="Clear" onclick="document.getElementById('bfi').value='';"><span class="fal fa-times"></span></button>
+					<button type="button" class="btn btn-cancel"  title="Use the default image" onclick="alert('fix me');">Default</button>
+				</span>
 			</div>
 			
 			<div class="section">
 				<h2>Section</h2>
-				<label>Show Popular</label> <input type="checkbox" <?php $show_popular?print('checked'):print('') ?>>
-				<label>Show Categories</label> <input type="checkbox" <?php $show_categories?print('checked'):print('') ?>>
-				<label>Show Latest</label> <input type="checkbox" <?php $show_latest?print('checked'):print('') ?>>
+				<label>Show Popular</label> <input type="checkbox" name="show_popular" <?php $show_popular?print('checked'):print('') ?>>
+				<label>Show Categories</label> <input type="checkbox" name="show_categories" <?php $show_categories?print('checked'):print('') ?>>
+				<label>Show Latest</label> <input type="checkbox" name="show_latest" <?php $show_latest?print('checked'):print('') ?>>
 			</div>
 			
 			<div class="section">
 				<h2>Categories</h2>
 				<?php 
 					while ($category = mysqli_fetch_assoc($categories)) {
-						$entry = '<label>' . $category['name'] . '</label> <input type="checkbox" ';
+						$entry = '<label>' . $category['name'] . '</label> <input type="checkbox" name="show_category_';
+						$entry .= $category['id'] . '" ';
 						$entry .= $category['show_on_homepage'] ? 'checked' : '';
 						$entry .= ' >';
 						echo($entry);

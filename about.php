@@ -33,10 +33,10 @@
     <p>Steno CMS is a lightweight content management system for online blog publication. Steno CMS assumes no technical knowledge on the part of the user and takes care of the headaches of creating and maintaining a blog site. Apart from basic operations such as creating, retrieving, updating, and deleting posts (CRUD), it also supports multiple authors to help run the blog site in a collaborative manner. Steno CMS employs a novel tagging system to categorize blog posts for easy and fast navigation.</p>
 
     <ul class="features">
-        <li><span class="far fa-feather"></span>Lightweight</li>
-        <li><span class="far fa-puzzle-piece"></span>Easy to Use</li>
-        <li><span class="far fa-pencil-alt"></span>Customizable</li>
-        <li><span class="far fa-handshake"></span>Collaborative</li>
+        <li><span class="fal fa-feather"></span>Lightweight</li>
+        <li><span class="fal fa-puzzle-piece"></span>Easy to Use</li>
+        <li><span class="fal fa-pencil-alt"></span>Customizable</li>
+        <li><span class="fal fa-handshake"></span>Collaborative</li>
     </ul>
 
     <h1>Meet the Team.</h1>
