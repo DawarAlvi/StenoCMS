@@ -1,7 +1,8 @@
-<?php require_once("../includes/db_connect.php"); ?>
-<?php require_once("../includes/functions.php"); ?>
-
 <?php
+	require_once("../includes/session.php");
+	require_once("../includes/db_connect.php");
+	require_once("../includes/functions.php");
+
 	$banner_info = get_banner_info("home");
 	$title = $banner_info["title"];
 	$caption = $banner_info["caption"];
@@ -35,8 +36,10 @@
 </head>
 
 <body>
-	<?php $nav_current = "homepage"; ?>
-    <?php require_once("../includes/cms/nav.php"); ?>
+	<?php
+		$nav_current = "homepage";
+		require_once("../includes/cms/nav.php");
+	?>
 
     <div class="main">
 		<form method="post" action="../action/cms/homepage.php" enctype="multipart/form-data">
@@ -81,14 +84,13 @@
 				<h2>Categories</h2>
 				<?php 
 					while ($category = mysqli_fetch_assoc($categories)) {
-						$entry = '<label>' . $category['name'] . '</label> <input type="checkbox" name="show_category_';
+						$entry = '<label>' . ucwords($category['name']) . '</label> <input type="checkbox" name="show_category_';
 						$entry .= $category['id'] . '" ';
 						$entry .= $category['show_on_homepage'] ? 'checked' : '';
 						$entry .= ' >';
 						echo($entry);
 					}
 				?>
-				
 			</div>
 			
 			<div class="section-last">

@@ -1,6 +1,6 @@
 <?php
-require_once("../includes/session.php");
-require_once("../includes/db_connect.php");
+require_once("../../includes/session.php");
+require_once("../../includes/db_connect.php");
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
     /*--Initialization--*/
@@ -112,7 +112,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         if(!$result) {
             array_push($errors,"Database query failed.");
             $_SESSION["errors"] = $errors;
-            header("Location: ../cms/create_post");
+            header("Location: ../../cms/create_post");
             die("Database query failed.");
         }
         else {
@@ -129,7 +129,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                 if(!$result) {
                     array_push($errors,"Database query failed.");
                     $_SESSION["errors"] = $errors;
-                    header("Location: ../cms/create_post");
+                    header("Location: ../../cms/create_post");
                     die("Database query failed.");
                 }
             }
@@ -145,7 +145,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                 if(!$result) {
                     array_push($errors,"Database query failed.");
                     $_SESSION["errors"] = $errors;
-                    header("Location: ../cms/create_post");
+                    header("Location: ../../cms/create_post");
                     die("Database query failed.");
                 }
             }
@@ -161,13 +161,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                 if(!$result) {
                     array_push($errors,"Database query failed.");
                     $_SESSION["errors"] = $errors;
-                    header("Location: ../cms/create_post");
+                    header("Location: ../../cms/create_post");
                     die("Database query failed.");
                 }
             }
 
             //save images
-            $destination = "../img/posts/" . $post_id;
+            $destination = "../../img/posts/" . $post_id;
             mkdir($destination);
 
             foreach ($images as $key => $image) {
@@ -175,17 +175,17 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
                 move_uploaded_file($image["tmp_name"],$destination . "/" . $key . ".jpg");
             }
 
-            header("Location: ../cms/view_posts");
+            header("Location: ../../cms/view_posts");
         }
     }
     else {
         //validation failed
         $_SESSION["errors"] = $errors;
-        header("Location: ../cms/create_post.php");
+        header("Location: ../../cms/create_post.php");
     }
 }
 else {
-    header("Location: ../cms/create_post.php");
+    header("Location: ../../cms/create_post.php");
     die("Bad Request");
 }
 ?>

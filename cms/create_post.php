@@ -1,8 +1,8 @@
 <?php 
     require_once("../includes/session.php");
     require_once("../includes/db_connect.php");
+    require_once("../includes/functions.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,12 +28,11 @@
 
 <body>
     <?php $nav_current = "create_post"; ?>
-    <?php require_once("../includes/functions.php"); ?>
     <?php require_once("../includes/cms/nav.php"); ?>
 
     <div class="main">
         <?php echo validation_errors();?>
-        <form method="post" id="post_form" action="../action/create_post_submit.php" enctype="multipart/form-data">
+        <form method="post" id="post_form" action="../action/cms/create_post_submit.php" enctype="multipart/form-data">
 
             <!--consider reimplementing as a session variable-->
             <input type="text" name="format" value="" id="format_field" hidden>

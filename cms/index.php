@@ -1,3 +1,7 @@
+<?php
+    require_once("../includes/session.php");
+    require_once("../includes/functions.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +23,6 @@
 </head>
 
 <body>
-    <?php require_once("../includes/functions.php"); ?>
     <?php require_once("../includes/cms/nav.php"); ?>
 
     <div class="main">

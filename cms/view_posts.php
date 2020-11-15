@@ -1,3 +1,8 @@
+<?php
+	require_once("../includes/session.php");
+	require_once("../includes/db_connect.php");
+	require_once("../includes/functions.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,23 +21,37 @@
 
     <!--FAVICONS-->
     <link rel="icon" type="image/x-icon" href="../img/steno_logo.png">
+
+	<script>
+		function view_post(id) {
+			window.location.href = "view_post?q=" + id;
+		}
+	</script>
 </head>
 
 <body>
-    <?php require_once("../includes/functions.php"); ?>
-	<?php $nav_current = "view_posts"; ?>
-    <?php require_once("../includes/cms/nav.php"); ?>
+	<?php 
+		$nav_current = "view_posts";
+		require_once("../includes/cms/nav.php");
+
+		$posts = get_latest();
+	?>
 
     <div class="main">
+		<div class="section">
+			<h2>All Posts - by date</h2>
+			<?php
+				while($post = mysqli_fetch_assoc($posts)){
+					$author = get_author_by_id($post["author_id"])["name"];
+					$date = new DateTime($post["date"]);
+					$date = $date->format('d M Y');
+					echo('
+						<span>' . $post["title"] . '</span><span><b>' . $author . '</b> &nbsp;- &nbsp; ' . $date . '</span><button type="button" class="btn btn-confirm" onclick="view_post('.$post['id'].')">View</button>
+					');
+				}
+			?>
+		</div>			
         <form method="post">
-			<div class="section">
-				<h2>All Posts - by date</h2>
-				<span>Post 1 example title</span> <span>Dawar Alvi &nbsp;- &nbsp;2 Jan 2020</span><button type="button" class="btn btn-confirm">View</button>
-				<span>Post 2 example title</span> <span>Dawar Alvi &nbsp;- &nbsp;1 Jan 2020</span><button type="button" class="btn btn-confirm">View</button>
-				<span>Post 3 example title</span> <span>Dawar Alvi &nbsp;- &nbsp;4 Dec 2019</span><button type="button" class="btn btn-confirm">View</button>
-				
-			</div>			
-			
 			<div class="section-last">
 				<select>
 					<option>Date</option>

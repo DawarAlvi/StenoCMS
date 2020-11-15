@@ -14,7 +14,14 @@
     <input type="checkbox" onclick="toggleIcon();">
     <span class="fal fa-bars" id="menu-icon"></span>
 
-	<?php if(!isset($nav_current)) $nav_current = "" ?>
+    <?php 
+        if(!isset($nav_current)) $nav_current = "";
+    
+        function is_current($value) {
+            global $nav_current;
+            if($nav_current === $value) print("current");
+        }
+    ?>
 
     <ul class="menu">
         <li><a href="homepage"     class="<?php is_current("homepage") ?>">     <span class="fal fa-home fa-sm"></span>Homepage</a></li>

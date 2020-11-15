@@ -1,3 +1,8 @@
+<?php
+	require_once("../includes/session.php");
+	require_once("../includes/db_connect.php");
+	require_once("../includes/functions.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,19 +24,38 @@
 </head>
 
 <body>
-    <?php require_once("../includes/functions.php"); ?>
-	<?php $nav_current = "view_authors"; ?>
-    <?php require_once("../includes/cms/nav.php"); ?>
+	<?php
+		$nav_current = "view_authors";
+		require_once("../includes/cms/nav.php");
+	?>
 
     <div class="main">
         <form method="post">
 			<div class="section">
 				<h2>All Authors - by name</h2>
-				<span>Dawar Alvi</span><span>5</span><button type="button" class="btn btn-confirm">View</button>
-				<span>John Doe</span><span>14</span><button type="button" class="btn btn-confirm">View</button>
-				<span>Abc</span><span>56</span><button type="button" class="btn btn-confirm">View</button>
-				<span>TestName</span><span>63</span><button type="button" class="btn btn-confirm">View</button>
+				<?php
+					$authors = get_authors();
+					
+					while($author = mysqli_fetch_assoc($authors)) {
 
+						$query = 'SELECT COUNT(*) FROM posts WHERE author_id = ' . $author['id'];
+						$no_of_posts = mysqli_query($connection, $query);
+
+						echo('
+							<span><b>
+							');
+							
+						if($author['is_admin'] === '1')
+							echo('Admin - ');
+						else
+							echo('Author - '); 
+						
+						echo('</b>' . $author['name'] . '</span>
+							<span>' . mysqli_fetch_row($no_of_posts)[0] . '</span>
+							<button type="button" class="btn btn-confirm">View</button>
+						');
+					}
+				?>
 			</div>			
 			
 			<div class="section-last">

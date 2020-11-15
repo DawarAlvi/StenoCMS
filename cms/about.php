@@ -1,3 +1,13 @@
+<?php
+	require_once("../includes/session.php");
+	require_once("../includes/db_connect.php");
+	require_once("../includes/functions.php");
+
+	$banner_info = get_banner_info("about");
+	$title = $banner_info["title"];
+	$caption = $banner_info["caption"];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +32,6 @@
 </head>
 
 <body>
-    <?php require_once("../includes/functions.php"); ?>
 	<?php $nav_current = "about"; ?>
     <?php require_once("../includes/cms/nav.php"); ?>
 
@@ -31,11 +40,11 @@
 			<div class="section">
 				<h2>Banner</h2>
 				<label>Banner About Background</label> <input type="file">
-				<button class="btn btn-cancel" onclick="window.location.reload()" title="Deletes your uploaded image from the server">default</button>
+				<button class="btn btn-cancel" onclick="window.location.reload()" title="Deletes your uploaded image from the server">Default</button>
 				
-				<label>Banner About Title</label> <input type="text">
+				<label>Banner About Title</label> <input type="text" value="<?php echo($title) ?>">
 				
-				<label>Banner About Caption</label> <input type="text">
+				<label>Banner About Caption</label> <input type="text" value="<?php echo($caption) ?>">
 			</div>
 			
 			<div class="section">

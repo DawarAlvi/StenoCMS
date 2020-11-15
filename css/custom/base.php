@@ -22,8 +22,8 @@ body {
     padding:0;
     position:relative;
     min-height:100%;
-    background: #ccc;
-    font-family:'Raleway','Inter',sans-serif;
+    background: #ddd;
+    font-family:'Inter',sans-serif;
 }
 h1 {
     color:<?php echo($dark); ?>;

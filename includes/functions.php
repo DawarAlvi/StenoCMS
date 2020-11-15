@@ -1,5 +1,17 @@
 <?php
+    function sanitize_input($input) {
+        return htmlspecialchars(stripslashes(trim($input)));
+    }
 
+    function confirm_query($result_set) {
+        if(!$result_set) {
+            die("Database query failed.");
+        }
+    }
+
+
+
+    /* Banner functions */
     function get_banner($title,$caption) {
         $banner = '
         <div class="banner">
@@ -12,17 +24,6 @@
         return($banner);
     }
 
-	function is_current($value) {
-		global $nav_current;
-		if($nav_current === $value) print("current");
-    }
-    
-    function confirm_query($result_set) {
-        if(!$result_set) {
-            die("Database query failed.");
-        }
-    }
-
     function get_banner_info($page_name) {
         global $connection;
         $query = "SELECT `title`, `caption` FROM `main_pages` WHERE `page_name` = '{$page_name}'"; 
@@ -31,21 +32,7 @@
         return mysqli_fetch_assoc($result);
     }
 
-    function get_pages_nav_info() {
-        global $connection;
-        $query = "SELECT `show_on_nav` FROM `main_pages` WHERE 1"; 
-        $result = mysqli_query($connection, $query);
-        confirm_query($result);
-        return $result;
-    }
 
-    function get_categories_nav_info() {
-        global $connection;
-        $query = "SELECT `id`, `name`, `show_on_navbar` FROM `categories` WHERE 1"; 
-        $result = mysqli_query($connection, $query);
-        confirm_query($result);
-        return $result;
-    }
 
     function get_homepage_info() {
         global $connection;
@@ -58,6 +45,15 @@
     function get_popular($limit=0) {
         global $connection;
         $query = "SELECT * FROM `posts` WHERE `online` = 1 ORDER BY `views` DESC";
+        if($limit > 0) $query .= " LIMIT " . $limit; 
+        $result = mysqli_query($connection, $query);
+        confirm_query($result);
+        return $result;
+    }
+
+    function get_latest($limit=0) {
+        global $connection;
+        $query = "SELECT * FROM `posts` WHERE `online` = 1 ORDER BY `date` DESC";
         if($limit > 0) $query .= " LIMIT " . $limit; 
         $result = mysqli_query($connection, $query);
         confirm_query($result);
@@ -81,24 +77,32 @@
         return $categories;
     }
 
-    function get_categories($limit=0, $homepage=false) {
+    function get_post_headings($post_id) {
         global $connection;
-        $query = "SELECT * FROM `categories`";
-        $query .= $homepage ? " WHERE `show_on_homepage` = 0" : "";
-        $query .= $limit > 0 ? " LIMIT " . $limit : ""; 
+        $headings = Array();
+        $query = "SELECT `content` FROM `post_headings` WHERE `post_id` = " . $post_id;
+        $post_headings = mysqli_query($connection, $query);
+        confirm_query($post_headings);
 
-        $result = mysqli_query($connection, $query);
-        confirm_query($result);
-        return $result;
+        while($row = mysqli_fetch_assoc($post_headings)) {
+            array_push($headings,$row['content']);
+        }
+        
+        return $headings;
     }
 
-    function get_latest($limit=0) {
+    function get_post_texts($post_id) {
         global $connection;
-        $query = "SELECT * FROM `posts` WHERE `online` = 1 ORDER BY `date` DESC";
-        if($limit > 0) $query .= " LIMIT " . $limit; 
-        $result = mysqli_query($connection, $query);
-        confirm_query($result);
-        return $result;
+        $texts = Array();
+        $query = "SELECT `content` FROM `post_texts` WHERE `post_id` = " . $post_id;
+        $post_texts = mysqli_query($connection, $query);
+        confirm_query($post_texts);
+
+        while($row = mysqli_fetch_assoc($post_texts)) {
+            array_push($texts,$row['content']);
+        }
+        
+        return $texts;
     }
 
     function get_posts_by_category($category_id) {
@@ -118,8 +122,31 @@
         return $result;
     }
 
-    function sanitize_input($input) {
-        return htmlspecialchars(stripslashes(trim($input)));
+    function get_authors() {
+        global $connection;
+        $query = "SELECT * FROM `authors`";
+        $result = mysqli_query($connection, $query);
+        return $result;
+    }
+
+    function get_author_by_id($id) {
+        global $connection;
+        $query = "SELECT * FROM `authors` WHERE `id` = " . $id;
+        $result = mysqli_query($connection, $query);
+        $result = mysqli_fetch_assoc($result);
+        
+        return $result;
+    }
+
+    function get_categories($limit=0, $homepage=false) {
+        global $connection;
+        $query = "SELECT * FROM `categories`";
+        $query .= $homepage ? " WHERE `show_on_homepage` = 0" : "";
+        $query .= $limit > 0 ? " LIMIT " . $limit : ""; 
+
+        $result = mysqli_query($connection, $query);
+        confirm_query($result);
+        return $result;
     }
 
 ?>

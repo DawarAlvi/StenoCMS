@@ -3,6 +3,9 @@
 
 /* --*-- mobile first --*-- */
 
+img {
+	width: 100%;
+}
 .img-main {
 	background: url(../../img/posts/<?php print($_GET['q'] .'/0') ?>.jpg) center center no-repeat;
 	background-size: cover;
@@ -42,7 +45,7 @@
 .content {
 	width: cal(100vw-20px);
 	margin: 10px;
-	font-family: inter;
+	font-family: 'Inter';
 }
 
 /* --*-- Mobile Ends --*-- */
@@ -58,10 +61,9 @@
 /* --*-- Desktop Media Query --*-- */
 @media (min-width:980px){
 	.wrapper {
-		display: grid;
-		gap: 1em;
+		width:70%;
 		padding: 1em;
-		grid-template-columns:2fr 1fr;
+		margin: 0;
 	}
 	.img-main {
 		height: 40vw;
@@ -72,13 +74,10 @@
 		align-self: center;
 	}
 	.date {
-		grid-column: 1/2;
 	}
 	.heading {
-		grid-column: 1/2;
 	}	
 	.content {
-		grid-column: 1/2;
 	}
 	
 }

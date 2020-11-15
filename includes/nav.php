@@ -33,8 +33,26 @@
     }
 </script>
 
-<?php $main_pages = get_pages_nav_info() ?>
-<?php $nav_categories = get_categories_nav_info() ?>
+<?php 
+    function get_pages_nav_info() {
+        global $connection;
+        $query = "SELECT `show_on_nav` FROM `main_pages`"; 
+        $result = mysqli_query($connection, $query);
+        confirm_query($result);
+        return $result;
+    }
+
+    function get_categories_nav_info() {
+        global $connection;
+        $query = "SELECT `id`, `name`, `show_on_navbar` FROM `categories` WHERE 1"; 
+        $result = mysqli_query($connection, $query);
+        confirm_query($result);
+        return $result;
+    }
+    
+    $main_pages = get_pages_nav_info();
+    $nav_categories = get_categories_nav_info()
+?>
 
 <nav>
 	<span id="toggle" class="fal fa-bars" onclick="toggleMenu();"></span>

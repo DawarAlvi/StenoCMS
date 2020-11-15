@@ -30,6 +30,7 @@
 	background: #fff;
 	margin: 2px;
 	width:2.5em;
+	min-height: 2.5em;
 	line-height: 2.5em;
 	border:1px solid black;
 	border-radius:3px;

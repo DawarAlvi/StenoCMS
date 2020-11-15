@@ -3,10 +3,10 @@
         header("Location: index");
         die();
     }
-?>
-<?php require_once("includes/db_connect.php"); ?>
-<?php require_once("includes/functions.php"); ?>
-<?php
+
+    require_once("includes/db_connect.php");
+    require_once("includes/functions.php");
+
     $post_id = sanitize_input($_GET['q']);
     $post = get_post_by_id($post_id);
 
@@ -16,7 +16,21 @@
     }
 
     $post_title = $post['title'];
+    $date = $post['date'];
+    $format = str_split($post['format']);
+    $author_id = $post['author_id'];
+    
+    $author = get_author_by_id($author_id);
+    $author_name = $author['name'];
 
+    $d = new DateTime($date);
+
+    $categories = get_post_categories($post_id);
+    $headings = get_post_headings($post_id);
+    $texts = get_post_texts($post_id);
+    
+
+    // for tab title
     $banner_info = get_banner_info("home");
     $title = $banner_info["title"];
 ?>
@@ -41,17 +55,40 @@
 <body>
     <?php require_once("includes/nav.php"); ?>
 
+    <div class="img-main"></div>
+    <h1 class="title"><?php echo($post_title) ?></h1>
+    
 	<div class="wrapper">
-		<div class="img-main"></div>
-		<h1 class="title"><?php echo($post_title) ?></h1>
-		<p class="author-name">John Doe</p>
-		
-		
-		<p class="date">5 Aug 2019</p>
-		
-		<h2 class="heading">An Introduction to Contrast</h2>
-		<p class="content">Obvious examples of contrast are black and white, big and small, fast and slow, thick and thin. Opposites are the easiest way to grasp what contrast is, but when applying contrast to design work it’s never quite as black and white. If you were wondering, that’s where the saying about a situation being “black and white” comes from, which also leads to the saying of something being a “gray area”. In design we are often comparing things which are different but not opposite, for example an H1 and an h1, or an “add to cart” button and a “check out” button. This is where greater levels of contrast come into play.</p>
-		
+		<p class="author-name"><?php echo($author_name) ?></p>
+		<p class="date"><?php echo $d->format('d M Y'); ?></p>
+
+        <?php
+            $heading_index = 0;
+            $text_index = 0;
+            $image_index = 1;
+            foreach ($format as $key => $value) {
+                if($key > 0){
+                    switch ($value) {
+                        case 'h':
+                            echo('<h2 class="heading">');
+                            echo($headings[$heading_index]);
+                            echo('</h2>');
+                            $heading_index++;
+                            break;
+                        case 't':
+                            echo('<p class="content">');
+                            echo($texts[$text_index]);
+                            echo('</p>');
+                            $text_index++;
+                            break;
+                        case 'i':
+                            echo('<img src="img/posts/'. $post_id .'/'. $image_index .'.jpg" class="content">');
+                            $image_index++;
+                            break;
+                    }
+                }
+            }
+        ?>
 	</div>
 
     <?php require_once("includes/footer.php"); ?>

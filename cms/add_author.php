@@ -1,3 +1,7 @@
+<?php 
+    require_once("../includes/session.php");
+    require_once("../includes/functions.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,21 +23,24 @@
 </head>
 
 <body>
-    <?php require_once("../includes/functions.php"); ?>
-	<?php $nav_current = "add_author"; ?>
-    <?php require_once("../includes/cms/nav.php"); ?>
+    <?php
+        $nav_current = "add_author";
+        require_once("../includes/cms/nav.php");
+    ?>
 
     <div class="main">
-        <form>
+        <?php echo validation_errors();?>
+        <?php echo messages();?>
+        <form action="../action/cms/add_author_submit.php" method="post">
 			<div class="section">
 				<h2>Create New Author</h2>
-				<label>Username *</label> <input type="text" required>
-				<label>Display Name *</label> <input type="text" required>
-				<label>Email *</label> <input type="text" required>
-				<label>Password *</label> <input type="password" required>
-				<label>Retype Password *</label> <input type="password" required>
-				<label>Make Admin</label> <input type="checkbox">
-			</div>			
+				<label>Name *</label> <input type="text" name="name" required>
+				<label>Email *</label> <input type="text" name="email" required>
+				<label>Password *</label> <input type="password" name="password" required>
+				<label>Retype Password *</label> <input type="password" name="password2" required>
+				<label>Make Admin</label> <input type="checkbox" name="admin">
+				<label>About *</label> <textarea name="about" required></textarea>
+			</div>
 			
 			<div class="section-last">
 				<input type="submit" value="Create" class="btn btn-confirm"title="Create New Author">
