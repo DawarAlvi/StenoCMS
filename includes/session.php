@@ -4,7 +4,7 @@ session_start();
 function validation_errors() {
     $result = '';
     if(isset($_SESSION['errors'])){
-        $result = '<div class="section" onclick="dismiss(this)">';
+        $result = '<div class="section" onclick="this.style.display = \'none\';">';
         foreach ($_SESSION['errors'] as $error) {
             $result .= '<p style="color:#f30;font-size:0.8em;"><b>&#10006;</b> ' . $error . '</p>';
         }
@@ -17,7 +17,7 @@ function validation_errors() {
 function messages() {
     $result = '';
     if(isset($_SESSION['messages'])){
-        $result = '<div class="section" onclick="dismiss(this)">';
+        $result = '<div class="section" onclick="this.style.display = \'none\';">';
         foreach ($_SESSION["messages"] as $message) {
             $result .= '<p style="color:#f30;font-size:0.8em;"><b>&#10004;</b> ' . $message . '</p>';
         }
@@ -27,8 +27,3 @@ function messages() {
     }
 }
 ?>
-<script>
-    function dismiss(element) {
-        element.style.display = "none";
-    }
-</script>

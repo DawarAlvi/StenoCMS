@@ -1,5 +1,37 @@
-<?php require_once("includes/db_connect.php"); ?>
-<?php require_once("includes/functions.php"); ?>
+<?php
+    require_once("includes/session.php");
+
+    if(isset($_SESSION['author_id'])) {
+		header("Location: cms");
+    }
+    
+    require_once("includes/db_connect.php");
+    require_once("includes/functions.php");
+
+    $email = "";
+
+    if($_SERVER["REQUEST_METHOD"] === "POST") {
+
+        /*--Initialization--*/
+        $email  = strtolower(sanitize_input($_POST["email"]));
+        $password  = sanitize_input($_POST["password"]);
+        $errors = array();
+
+
+        $author = attempt_login($email, $password);
+
+        if($author) {
+            $_SESSION["author_id"] = $author["id"];
+            $_SESSION["author_name"] = $author["name"];
+            $_SESSION["is_admin"] = $author["is_admin"];
+            header("Location: cms");
+        }
+        else {
+            array_push($errors, "Email/Password incorrect.");
+            $_SESSION["errors"] = $errors;
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,10 +53,11 @@
 
 <body>
     <?php require_once("includes/nav.php"); ?>
+    <?php echo(validation_errors()); ?>
 
     <div class="login">
-        <form action="action/login.php" method="post">
-        <input type="text" name="username" placeholder="Username" required>
+        <form action="login.php" method="post">
+        <input type="text" name="email" placeholder="Email" value="<?php echo(htmlentities($email)) ?>" required>
         <input type="password" name="password" placeholder="Password" required>
         <input type="submit" value="Login">
         </form>

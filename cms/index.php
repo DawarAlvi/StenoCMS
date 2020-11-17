@@ -1,5 +1,10 @@
 <?php
     require_once("../includes/session.php");
+    if(!isset($_SESSION['author_id'])) {
+      header("Location: ../login");
+      die;
+    }
+    require_once("../includes/db_connect.php");
     require_once("../includes/functions.php");
 ?>
 <!DOCTYPE html>
@@ -26,9 +31,9 @@
     <?php require_once("../includes/cms/nav.php"); ?>
 
     <div class="main">
-       	<h1>Hi, John</h1>
+       	<h1>Hi, <?php echo($_SESSION["author_name"]) ?></h1>
 		<p>Select an option from the menu to start editing.</p>
-		<a href="#">Logout</a>
+		<a href="../logout">Logout</a>
     </div>
 
 </body>

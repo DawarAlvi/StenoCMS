@@ -64,6 +64,11 @@ select {
 	border-radius:4px;
 }
 
+input[type="file"], input{
+	border: 1px solid #777;
+	border-radius: 3px;
+}
+
 	
 /* --*-- Mobile Ends --*-- */
 

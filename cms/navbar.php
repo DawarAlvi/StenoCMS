@@ -1,5 +1,15 @@
 <?php
 	require_once("../includes/session.php");
+	if(!isset($_SESSION['author_id'])) {
+		header("Location: ../login");
+		die;
+	}
+	//Admin only page
+	if(!$_SESSION['is_admin']) {
+		header("Location: ../cms");
+		die;
+	}
+	require_once("../includes/db_connect.php");
 	require_once("../includes/functions.php");
 ?>
 <!DOCTYPE html>

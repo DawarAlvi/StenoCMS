@@ -9,7 +9,20 @@
         }
     }
 
-
+    function attempt_login($email, $password) {
+        $author = get_author_by_email($email);
+        if($author) {
+            if(password_verify($password,$author['password'])) {
+                return $author;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
 
     /* Banner functions */
     function get_banner($title,$caption) {
@@ -132,6 +145,15 @@
     function get_author_by_id($id) {
         global $connection;
         $query = "SELECT * FROM `authors` WHERE `id` = " . $id;
+        $result = mysqli_query($connection, $query);
+        $result = mysqli_fetch_assoc($result);
+        
+        return $result;
+    }
+
+    function get_author_by_email($email) {
+        global $connection;
+        $query = "SELECT * FROM `authors` WHERE `email` = '{$email}'";
         $result = mysqli_query($connection, $query);
         $result = mysqli_fetch_assoc($result);
         
