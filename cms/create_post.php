@@ -4,6 +4,7 @@
         header("Location: ../login");
         die;
 	}
+    require_once("../includes/db_connect.php");
     require_once("../includes/functions.php");
 ?>
 <!DOCTYPE html>
@@ -37,7 +38,6 @@
         <?php echo validation_errors();?>
         <form method="post" id="post_form" action="../action/cms/create_post_submit.php" enctype="multipart/form-data">
 
-            <!--consider reimplementing as a session variable-->
             <input type="text" name="format" value="" id="format_field" hidden>
 
             <div class="section" id="categories">
@@ -66,7 +66,7 @@
             </div>
         </form>
     </div>
-    
+
     <script>
         let no_of_categories = 0;
         let no_of_headings = 0;
@@ -114,7 +114,7 @@
             postForm.insertBefore(sectionDiv, lastElement);
 
             //After adding the element if it is text then replace it with ckeditor
-            if(item === 'text')CKEDITOR.replace("text_" + no_of_texts);
+            if (item === 'text') CKEDITOR.replace("text_" + no_of_texts);
 
             update_format_value();
         }
@@ -126,7 +126,7 @@
             if (postForm.children.length > 5) {
                 //get the second to last div element
                 let toRemove = postForm.lastElementChild;
-                
+
                 //check the toRemove element's label
                 switch (toRemove.firstElementChild.innerHTML) {
                     case "Text:":
@@ -157,22 +157,22 @@
         function add_category() {
             let elementParent = document.getElementById("categories");
             let element = document.createElement('select');
-            element.setAttribute("required","true");
+            element.setAttribute("required", "true");
 
             let firstElementChild = document.createElement("option");
             firstElementChild.innerText = "--Select category--";
-            firstElementChild.setAttribute("disabled","true");
-            firstElementChild.setAttribute("selected","true");
+            firstElementChild.setAttribute("disabled", "true");
+            firstElementChild.setAttribute("selected", "true");
             element.appendChild(firstElementChild);
 
-            <?php 
-                $result = mysqli_query($connection, "SELECT * FROM `categories`");
-                while($row = mysqli_fetch_assoc($result)) {
+            <?php
+                $result = get_categories();
+                while ($row = mysqli_fetch_assoc($result)) {
                     echo('
-                        let elementChild' . $row['id'] . ' = document.createElement("option");
-                        elementChild' . $row['id'] . '.innerText = "' . $row['name'] . '";
-                        elementChild' . $row['id'] . '.value = "' . $row['id'] . '";
-                        element.appendChild(elementChild' . $row['id'] . ');
+                    let elementChild' . $row['id'] . ' = document.createElement("option"); 
+                    elementChild' . $row['id'] . '.innerText = "' . $row['name'] . '"; 
+                    elementChild' . $row['id'] . '.value = "' . $row['id'] . '"; 
+                    element.appendChild(elementChild' . $row['id'] . ');
                     ');
                 }
             ?>
@@ -185,14 +185,12 @@
             let elementParent = document.getElementById("categories");
             let toRemove = elementParent.lastElementChild;
 
-            if(toRemove.type === "select-one") {
+            if (toRemove.type === "select-one") {
                 elementParent.removeChild(toRemove);
                 no_of_categories--;
             }
 
         }
-        
-	</script>
-
+    </script>
 </body>
 </html>
