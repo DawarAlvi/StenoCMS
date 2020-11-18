@@ -15,15 +15,18 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $category_ids = array();
     
-    if($_FILES["banner_homepage_bg"]["error"] === 0) {
-        
-    }
-    if($_FILES["logo_image"]["error"] === 0) {
+    /*handle images*/
+    if($_FILES["banner_homepage_bg"]["error"] === 0)
+        save_image($_FILES["banner_homepage_bg"], "../../img/banner/index.jpg");
+    elseif($_FILES["banner_homepage_bg"]["error"] !== 4) die("1");
 
-    }
-    if($_FILES["favicon_image"]["error"] === 0) {
+    if($_FILES["logo_image"]["error"] === 0)
+        save_image($_FILES["logo_image"], "../../img/branding/custom_logo.jpg");
+    elseif($_FILES["logo_image"]["error"] !== 4) die("2");
 
-    }
+    if($_FILES["favicon_image"]["error"] === 0)
+        save_image($_FILES["favicon_image"], "../../img/branding/custom_favicon.jpg");
+    elseif($_FILES["favicon_image"]["error"] !== 4) die("3");
 
 
 
@@ -31,15 +34,15 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     /*Perform Queries*/
 
     if($title !== "") {
-        //update_query("main_pages", "title", $title, "page_name", "home");
+        update_query("main_pages", "title", $title, "page_name", "home");
     }
     if($caption !== "") {
-        //update_query("main_pages", "caption", $caption, "page_name", "home");
+        update_query("main_pages", "caption", $caption, "page_name", "home");
     }
     
-    //update_query("homepage", "show", $show_popular, "section", "popular");
-    //update_query("homepage", "show", $show_categories, "section", "categories");
-    //update_query("homepage", "show", $show_latest, "section", "latest");
+    update_query("homepage", "show", $show_popular, "section", "popular");
+    update_query("homepage", "show", $show_categories, "section", "categories");
+    update_query("homepage", "show", $show_latest, "section", "latest");
     
     
 
@@ -59,15 +62,17 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         update_multiple_query("categories", "show_on_homepage", 1, "id", $category_ids);
     }
 
-
-
-
-
-
     /*Debugging*/
     echo("<pre>");
-    //print_r($_POST);
+    print_r($_FILES);
     echo("</pre>");
+
+
+
+
+    if(!empty($errors)) {
+        $_SESSION["errors"] = $errors;
+    }
 }
 else {
     header("Location: ../../cms/homepage.php");

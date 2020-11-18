@@ -93,9 +93,9 @@ nav {
         text-align:center;
     }
         .strip .logo {
-            background: url("../../img/steno_logo1.png") center center no-repeat;
+            background: <?php file_exists("../../img/branding/custom_logo.jpg")?print('url("../../img/branding/custom_logo.jpg")'):print('url("../../img/branding/default_logo.png")') ?> center center no-repeat;
             background-size: contain;
-            height:100px;Technology
+            height:100px;
         }
         .strip .title {
             margin:auto auto;

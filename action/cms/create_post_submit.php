@@ -2,6 +2,7 @@
 require_once("../../includes/session.php");
 auth_user("author", "../../cms/homepage");
 require_once("../../includes/db_connect.php");
+require_once("../../includes/functions.php");
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
     /*--Initialization--*/
@@ -11,16 +12,12 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     $format = $_POST["format"];
     $title = $_POST["title"];
 
-    /***********************************/
-    /*USE SESSION TO GET REAL AUTHOR ID*/
-    $author_id = 1;
-    /***********************************/
+    $author_id = $_SESSION["author_id"];
 
     $categories =
     $headings = 
     $texts = 
-    $images = 
-    $errors = array();
+    $images = array();
 
     $valid_imgs = array('jpg','jpeg','png');
     

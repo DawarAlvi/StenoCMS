@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="../css/custom/cms/base.php" type="text/css">
 
     <!--FAVICONS-->
-    <link rel="icon" type="image/x-icon" href="../img/steno_logo.png">
+    <?php file_exists("../img/branding/custom_favicon.jpg")?print('<link rel="icon" type="image/x-icon" href="../img/branding/custom_favicon.jpg">'):print('<link rel="icon" type="image/x-icon" href="../img/branding/default_favicon.png">'); ?>
 
     <!-- SCRIPTS -->
 	<script src="ckeditor/ckeditor.js"></script>

@@ -24,8 +24,30 @@
         }
     }
 
+    function save_image($image, $destination) {
+        global $errors;
+
+        $valid_imgs = array('jpg','jpeg','png');
+
+        $file_name = $image["name"];
+        $ext = strtolower(pathinfo($file_name,PATHINFO_EXTENSION));
+
+        //if image is empty or not of valid type
+        if($image["size"] === 0 || !in_array($ext,$valid_imgs)){
+            array_push($errors,"Empty or invalid image (only jpg and png allowed).");
+            return false;
+        }
+        if(($image["size"]/1024) > 2048) {
+            array_push($errors,"Image cannot be more than 2Mb.");
+            return false;
+        }
+
+        move_uploaded_file($image["tmp_name"], $destination);
+        return true;
+    }
+
     /* Banner functions */
-    function get_banner($title,$caption) {
+    function get_banner($title, $caption) {
         $banner = '
         <div class="banner">
             <div class="strip">            

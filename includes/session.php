@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+$errors = array();
+$messages = array();
+
 function auth_user($auth_level="normal", $redirect_to="/") {
     if(!isset($_SESSION['author_id'])) {
         header("Location: ../../login");

@@ -5,7 +5,7 @@
 /* --*-- mobile first --*-- */
 .banner {
 	height:16.6em;
-	background: <?php file_exists("../../img/banner/index.jpg")?print("url(\"../../img/banner/index.jpg\")"):print("url(\"../../img/banner/default.jpg\")") ?> center center no-repeat;
+	background: <?php file_exists("../../img/banner/index.jpg")?print('url("../../img/banner/index.jpg")'):print('url("../../img/banner/default.jpg")') ?> center center no-repeat;
 	background-size: cover;
 }
 
