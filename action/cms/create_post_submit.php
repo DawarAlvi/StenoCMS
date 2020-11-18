@@ -1,5 +1,6 @@
 <?php
 require_once("../../includes/session.php");
+auth_user("author", "../../cms/homepage");
 require_once("../../includes/db_connect.php");
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {

@@ -1,7 +1,9 @@
-<?php require_once("../../includes/session.php"); ?>
-<?php require_once("../../includes/db_connect.php"); ?>
-<?php require_once("../../includes/functions.php"); ?>
 <?php
+require_once("../../includes/session.php");
+auth_user("admin", "../../cms/homepage");
+require_once("../../includes/db_connect.php");
+require_once("../../includes/functions.php");
+
 if($_SERVER["REQUEST_METHOD"] === "POST") {
     /*--Initialization--*/
     $name  = sanitize_input($_POST["name"]);

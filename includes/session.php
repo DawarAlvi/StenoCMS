@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-function user_auth($auth_level="normal", $redirect_to="/") {
+function auth_user($auth_level="normal", $redirect_to="/") {
     if(!isset($_SESSION['author_id'])) {
         header("Location: ../../login");
         die;
