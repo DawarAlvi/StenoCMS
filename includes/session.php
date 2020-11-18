@@ -1,6 +1,20 @@
 <?php
 session_start();
 
+function user_auth($auth_level="normal", $redirect_to="/") {
+    if(!isset($_SESSION['author_id'])) {
+        header("Location: ../../login");
+        die;
+    }
+    if($auth_level === "admin"){
+        //Admin only page
+        if(!$_SESSION['is_admin']) {
+            header("Location: " . $redirect_to);
+            die;
+        }
+    }
+}
+
 function validation_errors() {
     $result = '';
     if(isset($_SESSION['errors'])){

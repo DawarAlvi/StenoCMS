@@ -1,20 +1,12 @@
 <?php
 	require_once("../includes/session.php");
-	if(!isset($_SESSION['author_id'])) {
-		header("Location: ../login");
-		die;
-	}
-	//Admin only page
-	if(!$_SESSION['is_admin']) {
-		header("Location: ../cms");
-		die;
-	}
+	user_auth("admin", ".");
 	require_once("../includes/db_connect.php");
 	require_once("../includes/functions.php");
 
 	$banner_info = get_banner_info("about");
-	$title = $banner_info["title"];
-	$caption = $banner_info["caption"];
+	$title 		 = $banner_info["title"];
+	$caption 	 = $banner_info["caption"];
 
 ?>
 <!DOCTYPE html>

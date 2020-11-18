@@ -3,8 +3,8 @@
         return htmlspecialchars(stripslashes(trim($input)));
     }
 
-    function confirm_query($result_set) {
-        if(!$result_set) {
+    function confirm_query($result) {
+        if(!$result) {
             die("Database query failed.");
         }
     }
@@ -44,6 +44,44 @@
         confirm_query($result);
         return mysqli_fetch_assoc($result);
     }
+
+
+
+
+
+
+    function update_query($table, $attribute, $value, $key,$key_value) {
+        global $connection;
+        $query = "UPDATE `{$table}` SET `{$attribute}` = '{$value}' WHERE `{$key}` = '{$key_value}'";
+        $result = mysqli_query($connection, $query);
+        confirm_query($result);
+        return $result;
+    }
+
+    function update_multiple_query($table, $attribute, $value, $key, $key_values) {
+        global $connection;
+
+        $query = "UPDATE `{$table}` SET `{$attribute}` = '{$value}' WHERE `{$key}` IN (";
+        foreach($key_values as $index => $key_value) {
+            if($index > 0)$query .= ", ";
+            $query .= $key_value;
+        }
+        $query .= ")";
+
+        $result = mysqli_query($connection, $query);
+        confirm_query($result);
+        return $result;
+    }
+    
+    function update_all_query($table, $attribute, $value) {
+        global $connection;
+        $query = "UPDATE `{$table}` SET `{$attribute}` = '{$value}' WHERE 1";
+        $result = mysqli_query($connection, $query);
+        confirm_query($result);
+        return $result;
+    }
+
+
 
 
 

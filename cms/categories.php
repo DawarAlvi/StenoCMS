@@ -1,17 +1,14 @@
 <?php
 	require_once("../includes/session.php");
-	if(!isset($_SESSION['author_id'])) {
-		header("Location: ../login");
-		die;
-	}
+	user_auth("author", ".");
 	require_once("../includes/db_connect.php");
 	require_once("../includes/functions.php");
 
 	$banner_info = get_banner_info("categories");
-	$title = $banner_info["title"];
-	$caption = $banner_info["caption"];
+	$title 		 = $banner_info["title"];
+	$caption 	 = $banner_info["caption"];
 
-	$categories = get_categories();
+	$categories  = get_categories();
 ?>
 <!DOCTYPE html>
 <html lang="en">

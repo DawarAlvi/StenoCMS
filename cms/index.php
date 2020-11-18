@@ -1,9 +1,6 @@
 <?php
     require_once("../includes/session.php");
-    if(!isset($_SESSION['author_id'])) {
-      header("Location: ../login");
-      die;
-    }
+    user_auth("author", ".");
     require_once("../includes/db_connect.php");
     require_once("../includes/functions.php");
 ?>

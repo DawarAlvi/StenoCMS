@@ -1,28 +1,19 @@
 <?php
 	require_once("../includes/session.php");
-	if(!isset($_SESSION['author_id'])) {
-		header("Location: ../login");
-		die;
-	}
-	//Admin only page
-	if(!$_SESSION['is_admin']) {
-		header("Location: ../cms");
-		die;
-	}
+	user_auth("admin", ".");
 	require_once("../includes/db_connect.php");
 	require_once("../includes/functions.php");
 
-	$banner_info = get_banner_info("home");
-	$title = $banner_info["title"];
-	$caption = $banner_info["caption"];
+	$banner_info 	 = get_banner_info("home");
+	$title 			 = $banner_info["title"];
+	$caption 		 = $banner_info["caption"];
 
-	$homepage_info = get_homepage_info();
-    $show_popular = mysqli_fetch_assoc($homepage_info)["show"];
+	$homepage_info 	 = get_homepage_info();
+    $show_popular 	 = mysqli_fetch_assoc($homepage_info)["show"];
     $show_categories = mysqli_fetch_assoc($homepage_info)["show"];
-	$show_latest = mysqli_fetch_assoc($homepage_info)["show"];
+	$show_latest 	 = mysqli_fetch_assoc($homepage_info)["show"];
 
-	$categories = get_categories();
-	
+	$categories 	 = get_categories();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +42,7 @@
 	?>
 
     <div class="main">
-		<form method="post" action="../action/cms/homepage.php" enctype="multipart/form-data">
+		<form method="post" action="../action/cms/homepage_submit.php" enctype="multipart/form-data">
 			<div class="section">
 				<h2>Banner</h2>
 				<label>Banner Homepage Background</label> <input type="file" name="banner_homepage_bg" id="bhp_bg">
@@ -83,14 +74,14 @@
 			</div>
 			
 			<div class="section">
-				<h2>Section</h2>
+				<h2>Sections to show on homepage</h2>
 				<label>Show Popular</label> <input type="checkbox" name="show_popular" <?php $show_popular?print('checked'):print('') ?>>
 				<label>Show Categories</label> <input type="checkbox" name="show_categories" <?php $show_categories?print('checked'):print('') ?>>
 				<label>Show Latest</label> <input type="checkbox" name="show_latest" <?php $show_latest?print('checked'):print('') ?>>
 			</div>
 			
 			<div class="section">
-				<h2>Categories</h2>
+				<h2>Categories to show on homepage</h2>
 				<?php 
 					while ($category = mysqli_fetch_assoc($categories)) {
 						$entry = '<label>' . ucwords($category['name']) . '</label> <input type="checkbox" name="show_category_';
