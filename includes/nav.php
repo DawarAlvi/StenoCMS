@@ -58,7 +58,7 @@
 	<span id="toggle" class="fal fa-bars" onclick="toggleMenu();"></span>
     <ul>
         <!-- main pages-->
-        <?php  mysqli_fetch_assoc($main_pages)["show_on_nav"] ? print('<li><a href="index">HOME</a></li>'):print('');?>
+        <?php  mysqli_fetch_assoc($main_pages)["show_on_nav"] ? print('<li><a href=".">HOME</a></li>'):print('');?>
         <?php  mysqli_fetch_assoc($main_pages)["show_on_nav"] ? print('<li><a href="categories">CATEGORIES</a></li>'):print('');?>
         <?php  mysqli_fetch_assoc($main_pages)["show_on_nav"] ? print('<li><a href="about">ABOUT</a></li>'):print('');?>
         <?php  mysqli_fetch_assoc($main_pages)["show_on_nav"] ? print('<li><a href="contact">CONTACT</a></li>'):print('');?>

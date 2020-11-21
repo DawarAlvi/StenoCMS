@@ -32,7 +32,6 @@
 
     <!--FAVICONS-->
     <?php file_exists("img/branding/custom_favicon.jpg")?print('<link rel="icon" type="image/x-icon" href="img/branding/custom_favicon.jpg">'):print('<link rel="icon" type="image/x-icon" href="img/branding/default_favicon.png">'); ?>
-    
 </head>
 
 <body>

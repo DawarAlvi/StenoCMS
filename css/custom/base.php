@@ -194,6 +194,7 @@ footer{
     background-color: #272727;
     }
     .footer-branding{
+        font-family: Raleway, Inter, sans-serif;
         text-align: center;
         padding:16px 0;
 

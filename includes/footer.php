@@ -1,6 +1,6 @@
 <footer>
     <div class="footer-branding">
-        <img src="img/steno_logo1.png" alt="logo">
+        <img src="img/branding/default_logo.png" alt="Steno cms logo">
         <p>powered by</p>
         <p>Steno <span>CMS</span></p>
     </div>
