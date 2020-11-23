@@ -28,13 +28,11 @@
     <!-- STYLES -->
     <link rel="stylesheet" href="../css/all.min.css" type="text/css">
     <link rel="stylesheet" href="../css/light.min.css" type="text/css">
-	
     <link rel="stylesheet" href="../css/custom/cms/base.php" type="text/css">
 
     <!--FAVICONS-->
     <?php file_exists("../img/branding/custom_favicon.jpg")?print('<link rel="icon" type="image/x-icon" href="../img/branding/custom_favicon.jpg">'):print('<link rel="icon" type="image/x-icon" href="../img/branding/default_favicon.png">'); ?>
 </head>
-
 <body>
 	<?php
 		$nav_current = "homepage";
@@ -44,7 +42,6 @@
     <div class="main">
 		<?php echo validation_errors();?>
 		<?php echo messages();?>
-
 		<form method="post" action="../action/cms/homepage_submit.php" enctype="multipart/form-data">
 			<div class="section">
 				<h2>Banner</h2>
@@ -59,6 +56,7 @@
 				<label>Banner Homepage Caption</label> <input type="text" name="banner_homepage_caption" value="<?php echo($caption) ?>">
 			</div>
 
+
 			<div class="section">
 				<h2>Branding</h2>
 				<label>Logo Image</label> <input type="file" name="logo_image" id="bli">
@@ -67,8 +65,6 @@
 					<button type="button" class="btn btn-cancel"  title="Use the default image" onclick="ajaxDeleteImage('logo')">Default</button>
 				</span>
 
-				<br>
-
 				<label>Favicon Image</label> <input type="file" name="favicon_image" id="bfi">
 				<span>
 					<button type="button" class="btn"  title="Clear" onclick="document.getElementById('bfi').value='';"><span class="fal fa-times"></span></button>
@@ -76,13 +72,15 @@
 				</span>
 			</div>
 			
+
 			<div class="section">
 				<h2>Sections to show on homepage</h2>
-				<label>Show Popular</label> <input type="checkbox" name="show_popular" <?php $show_popular?print('checked'):print('') ?>>
+				<label>Show Popular</label>    <input type="checkbox" name="show_popular" <?php $show_popular?print('checked'):print('') ?>>
 				<label>Show Categories</label> <input type="checkbox" name="show_categories" <?php $show_categories?print('checked'):print('') ?>>
-				<label>Show Latest</label> <input type="checkbox" name="show_latest" <?php $show_latest?print('checked'):print('') ?>>
+				<label>Show Latest</label>     <input type="checkbox" name="show_latest" <?php $show_latest?print('checked'):print('') ?>>
 			</div>
 			
+
 			<div class="section">
 				<h2>Categories to show on homepage</h2>
 				<?php 
@@ -96,18 +94,15 @@
 				?>
 			</div>
 			
+
 			<div class="section-last">
 				<button type="reset" class="btn btn-cancel" title="Discard changes">cancel</button>
 				<input type="submit" value="save" class="btn btn-confirm"title="Save changes">
 			</div>
-			
-			
 		</form>
-	
     </div>
+	<!-- Main End -->
 
 	<script src="../js/custom.js"></script>
-
 </body>
-
 </html>

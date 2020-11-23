@@ -68,10 +68,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION["errors"] = $errors;
         header("Location: ../../cms/add_author.php");
     }
-
-
-
-
 }
 else {
     //header("Location: ../../cms/add_author.php");

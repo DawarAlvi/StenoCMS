@@ -7,6 +7,7 @@
         if(!$result) {
             die("Database query failed.");
         }
+        else return $result;
     }
 
     function attempt_login($email, $password) {
@@ -45,6 +46,9 @@
         move_uploaded_file($image["tmp_name"], $destination);
         return true;
     }
+
+    
+
 
     /* Banner functions */
     function get_banner($title, $caption) {
@@ -114,6 +118,7 @@
         confirm_query($result);
         return $result;
     }
+
 
     function get_popular($limit=0) {
         global $connection;
@@ -195,6 +200,7 @@
         return $result;
     }
 
+
     function get_authors() {
         global $connection;
         $query = "SELECT * FROM `authors`";
@@ -220,6 +226,7 @@
         return $result;
     }
 
+    
     function get_categories($limit=0, $homepage=false) {
         global $connection;
         $query = "SELECT * FROM `categories`";

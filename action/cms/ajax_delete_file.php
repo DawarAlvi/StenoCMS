@@ -16,6 +16,15 @@
                 $response = $already_default;
                 break;
 
+            case 'bannercategories':
+                if(file_exists('../../img/banner/categories.jpg')) {
+                    unlink('../../img/banner/categories.jpg');
+                    $response = $success;
+                    break;
+                }
+                $response = $already_default;
+                break;
+
             case 'logo':
                 if(file_exists('../../img/branding/custom_logo.jpg')) {
                     unlink('../../img/branding/custom_logo.jpg');

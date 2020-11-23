@@ -69,6 +69,33 @@ input[type="file"], input{
 	border-radius: 3px;
 }
 
+
+.modal {
+	position: fixed;
+	left: 0;
+	top: 0;
+
+	display: none;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+	height: 100%;
+
+	background: #000000aa;
+}
+	.modal * {
+		margin-top: 1em;
+	}
+	.modal form {
+		padding: 1em;
+		
+		border-radius: 3px;
+		background: white;
+	}
+	.modal input[type="text"] {
+		min-width: 250px;
+	}
 	
 /* --*-- Mobile Ends --*-- */
 

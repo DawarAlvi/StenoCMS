@@ -13,7 +13,7 @@ function ajaxDeleteImage(image) {
             }
         }
 
-        xmlhttp.open('GET', '../action/cms/delete_file.php?file=' + image, true);
+        xmlhttp.open('GET', '../action/cms/ajax_delete_file.php?file=' + image, true);
         xmlhttp.send();
     }
 }
