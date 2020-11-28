@@ -1,17 +1,24 @@
 <?php require_once("vars.php") ?>
 
-/* fonts */
+/* Fonts */
 @font-face {
-    font-family: 'Sarina';
-    src:url('../../webfonts/custom/Sarina-Regular.ttf') format('truetype');
+    font-family: 'Inter';
+    src:url('../../webfonts/custom/Inter-Regular.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'Raleway';
     src:url('../../webfonts/custom/Raleway-Regular.ttf') format('truetype');
 }
+
 @font-face {
-    font-family: 'Inter';
-    src:url('../../webfonts/custom/Inter-Regular.ttf') format('truetype');
+    font-family: 'Roboto';
+    src:url('../../webfonts/custom/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Sarina';
+    src:url('../../webfonts/custom/Sarina-Regular.ttf') format('truetype');
 }
 
 

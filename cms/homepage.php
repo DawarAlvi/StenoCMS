@@ -45,7 +45,7 @@
 		<form method="post" action="../action/cms/homepage_submit.php" enctype="multipart/form-data">
 			<div class="section">
 				<h2>Banner</h2>
-				<label>Banner Homepage Background</label> <input type="file" name="banner_homepage_bg" id="bhp_bg">
+				<label for="bhp_bg">Banner Homepage Background</label> <input type="file" name="banner_homepage_bg" id="bhp_bg">
 				<span>
 					<button type="button" class="btn"  title="Clear" onclick="document.getElementById('bhp_bg').value='';"><span class="fal fa-times"></span></button>
 					<button type="button" class="btn btn-cancel"  title="Use the default image" onclick="ajaxDeleteImage('bannerhomepage')">Default</button>

@@ -31,6 +31,7 @@
 <body>
     <?php require_once("includes/nav.php"); ?>
     <?php
+        //if category id is give in the url 
         if(isset($_GET['q'])) {
             //show posts from specified category
             if(is_numeric($_GET['q'])) {
@@ -157,7 +158,7 @@
             while($category = mysqli_fetch_assoc($categories)) {
                 echo('
                 <a href="categories.php?q=' . $category["id"] . '" class="category category-' . $category["id"] . '" title="' . $category["name"] . '">
-                    <span>' . $category["name"] . '</span>
+                    <span>' . ucwords($category["name"]) . '</span>
                 </a>');
             }
         }

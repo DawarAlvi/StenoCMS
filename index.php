@@ -26,8 +26,7 @@
     <title><?php echo($title) ?></title>
 
     <!-- STYLES -->
-    <link rel="stylesheet" href="css/all.min.css" type="text/css">
-    <link rel="stylesheet" href="css/light.min.css" type="text/css">
+	<link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@8af0edd/css/all.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/custom/index.php" type="text/css">
 
     <!--FAVICONS-->
@@ -89,7 +88,7 @@
             while($category = mysqli_fetch_assoc($categories)) {
                 echo('
                 <a href="categories?q=' . $category["id"] . '" class="category category-' . $category["id"] . '">
-                    <span>' . $category["name"] . '</span>
+                    <span>' . ucwords($category["name"]) . '</span>
                 </a>
                 ');
             }

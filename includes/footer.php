@@ -1,3 +1,4 @@
+<?php $links = get_media_links() ?>
 <footer>
     <div class="footer-branding">
         <img src="img/branding/default_logo.png" alt="Steno cms logo">
@@ -6,9 +7,9 @@
     </div>
 
     <div class="footer-links">
-        <a href="https://www.facebook.com"  title="follow us on facebook"> <span class="fab fa-facebook-f"></span></a>
-        <a href="https://www.twitter.com"   title="follow us on twitter">  <span class="fab fa-twitter">   </span></a>
-        <a href="https://www.instagram.com" title="follow us on instagram"><span class="fab fa-instagram"> </span></a>
+        <a href="<?php print(mysqli_fetch_assoc($links)["url"]) ?>" title="follow us on facebook" target="_blank"> <span class="fab fa-facebook-f"></span></a>
+        <a href="<?php print(mysqli_fetch_assoc($links)["url"]) ?>" title="follow us on instagram" target="_blank"><span class="fab fa-instagram"> </span></a>
+        <a href="<?php print(mysqli_fetch_assoc($links)["url"]) ?>" title="follow us on twitter" target="_blank">  <span class="fab fa-twitter">   </span></a>
     </div>
 
     <div class="footer-nav-links">

@@ -1,7 +1,7 @@
 <?php
     if(!isset($_GET['q'])) {
         header("Location: index");
-        die();
+        die;
     }
 
     require_once("includes/db_connect.php");
@@ -12,18 +12,19 @@
 
     if(is_null($post)) {
         header("Location: index");
-        die();
+        die;
     }
 
+    increment_post_view($post_id);
+
     $post_title = $post['title'];
-    $date = $post['date'];
+    $date = new DateTime($post['date']);
+    
     $format = str_split($post['format']);
     $author_id = $post['author_id'];
     
     $author = get_author_by_id($author_id);
     $author_name = $author['name'];
-
-    $d = new DateTime($date);
 
     $categories = get_post_categories($post_id);
     $headings = get_post_headings($post_id);
@@ -46,7 +47,7 @@
     <!-- STYLES -->
     <link rel="stylesheet" href="css/all.min.css" type="text/css">
     <link rel="stylesheet" href="css/light.min.css" type="text/css">
-    <link rel="stylesheet" href="css/custom/post.php?q=<?php print($post_id) ?>" type="text/css">
+    <link rel="stylesheet" href="css/custom/post.php" type="text/css">
 
     <!--FAVICONS-->
     <?php file_exists("img/branding/custom_favicon.jpg")?print('<link rel="icon" type="image/x-icon" href="img/branding/custom_favicon.jpg">'):print('<link rel="icon" type="image/x-icon" href="img/branding/default_favicon.png">'); ?>
@@ -54,14 +55,20 @@
 
 <body>
     <?php require_once("includes/nav.php"); ?>
+    
+    <div id="banner" style="background: url('img/posts/<?php print($post_id) ?>/0.jpg') center center no-repeat; background-size: cover;">
+        <div id="banner-strip">
+            <span id="banner-title"><?php print($post_title) ?></span>
+            <span id="banner-author">
+                <img id="banner-author-pic" src="img/authors/default.png" width="50">
+                <span id="banner-author-name"><?php print($author_name) ?></span>
+                <span id="banner-date"><?php print($date->format('d M Y')) ?></span>
+            </span>
+        </div>
+    </div>
 
-    <div class="img-main"></div>
-    <h1 class="title"><?php echo($post_title) ?></h1>
     
 	<div class="wrapper">
-		<p class="author-name"><?php echo($author_name) ?></p>
-		<p class="date"><?php echo $d->format('d M Y'); ?></p>
-
         <?php
             $heading_index = 0;
             $text_index = 0;
@@ -82,7 +89,7 @@
                             $text_index++;
                             break;
                         case 'i':
-                            echo('<img src="img/posts/'. $post_id .'/'. $image_index .'.jpg" class="content">');
+                            echo('<img src="img/posts/'. $post_id .'/'. $image_index .'.jpg" class="content-img">');
                             $image_index++;
                             break;
                     }

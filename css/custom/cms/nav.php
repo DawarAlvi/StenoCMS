@@ -1,15 +1,15 @@
 <?php Header("Content-type: text/css; charset: utf-8") ?>
 
 @font-face {
-    font-family: 'mulish';
-    src:url('../../../webfonts/custom/Muli-Regular.ttf') format('truetype');
+    font-family: 'MulishLight';
+    src:url('../../../webfonts/custom/Muli-Light.ttf') format('truetype');
 }
 
 body {
     margin:0;
     padding:0;
     background: #eee;
-    font-family: mulish, sans-serif;
+    font-family: 'MulishLight', sans-serif;
     font-size: 14px;
 }
 a {

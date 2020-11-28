@@ -3,6 +3,8 @@
     auth_user("admin", ".");
     require_once("../includes/db_connect.php");
     require_once("../includes/functions.php");
+    
+    $links = get_media_links();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,12 +31,14 @@
     <?php require_once("../includes/cms/nav.php"); ?>
 
     <div class="main">
-        <form>
+        <?php echo validation_errors();?>
+        <?php echo messages();?>
+        <form method="post" action="../action/cms/links_submit.php">
 			<div class="section">
 				<h2>Media URL links</h2>
-				<label>Facebook</label> <input type="text">
-				<label>Twitter</label> <input type="text">
-				<label>Instagram</label> <input type="text">
+				<label>Facebook</label>  <input type="text" name="facebook" value="<?php print(mysqli_fetch_assoc($links)["url"]) ?>">
+				<label>Instagram</label> <input type="text" name="instagram" value="<?php print(mysqli_fetch_assoc($links)["url"]) ?>">
+				<label>Twitter</label>   <input type="text" name="twitter" value="<?php print(mysqli_fetch_assoc($links)["url"]) ?>">
 			</div>			
 			
 			<div class="section-last">

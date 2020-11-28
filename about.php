@@ -1,14 +1,13 @@
-<?php require_once("includes/db_connect.php"); ?>
-<?php require_once("includes/functions.php"); ?>
 <?php
+    require_once("includes/db_connect.php");
+    require_once("includes/functions.php");
+
     $banner_info = get_banner_info("about");
     $title = $banner_info["title"];
     $caption = $banner_info["caption"];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +23,6 @@
     <!--FAVICONS-->
     <?php file_exists("img/branding/custom_favicon.jpg")?print('<link rel="icon" type="image/x-icon" href="img/branding/custom_favicon.jpg">'):print('<link rel="icon" type="image/x-icon" href="img/branding/default_favicon.png">'); ?>
 </head>
-
 <body>
     <?php require_once("includes/nav.php"); ?>
     <?php echo (get_banner($title, $caption)); ?>
@@ -45,5 +43,4 @@
     <?php require_once("includes/footer.php"); ?>
 
 </body>
-
 </html>

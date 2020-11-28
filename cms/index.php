@@ -1,6 +1,6 @@
 <?php
     require_once("../includes/session.php");
-    auth_user("author", ".");
+    auth_user("author", "../login");
     require_once("../includes/db_connect.php");
     require_once("../includes/functions.php");
 ?>

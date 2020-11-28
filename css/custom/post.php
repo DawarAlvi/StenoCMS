@@ -3,82 +3,101 @@
 
 /* --*-- mobile first --*-- */
 
-img {
+#banner {
+	display: flex;
+	align-items: center;
+	padding: 4em 0;
+}
+#banner-strip {
+	box-sizing: border-box;
+	padding: 1em;
 	width: 100%;
+	color: white;
+	background: #000a;
 }
-.img-main {
-	background: url(../../img/posts/<?php print($_GET['q'] .'/0') ?>.jpg) center center no-repeat;
-	background-size: cover;
-	margin: 0 auto;
-	overflow: hidden;
-	height: 60vw;
-	width: 100%;
+#banner-title {
+	font-size: 3em;
+	font-family: 'Roboto';
 }
 
-.title {
-	margin: 10px;
+#banner-author {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-.author-pic {
-	width: 80px;
-	height: 80px;
-	background: grey url(../../img/authors/default.png) center center no-repeat;
-	background-size: cover;
-	border-radius: 50%;
-	box-shadow: 2px 2px 10px black;
-	margin: 2em 2em 0 10px;
-	float: left;
+#banner-author-name {
+	font-weight: bolder;
+	margin: .5em 0;
 }
-
-.author-name {
-	font-size: 1.2em;
-	font-weight: bold;
+#banner-date {
+	font-size: .8em;
+}
+#banner-author-pic {
 	margin-top: 2em;
-	margin-left: 10px;
-}
-.date {
-	margin: 10px;
-}
-.heading {
-	margin: 10px;
-}
-.content {
-	width: cal(100vw-20px);
-	margin: 10px;
-	font-family: 'Inter';
+	border-radius: 50%;
+	border: 3px solid white;
 }
 
-/* --*-- Mobile Ends --*-- */
-
-/* --*-- Tablet Media Query --*-- */
-@media (min-width:550px){
-	
-	
-	
+.content-img{
+	max-width: 100vw;
 }
-/* --*-- Tablet Media Query Ends --*-- */
 
-/* --*-- Desktop Media Query --*-- */
-@media (min-width:980px){
-	.wrapper {
-		width:70%;
-		padding: 1em;
+
+
+
+
+/* --*-- Desktop --*-- */
+
+@media(min-width: 980px) {
+	#banner {
+		padding: 8em 0;
+		margin-bottom: 2em;
+	}
+	#banner-strip {
+		display: flex;
+		padding: 4em 1em;
+	}
+	#banner-title {
+		max-width: 50%;
+	}
+	#banner-author {
+		display: grid;
+		grid-template-rows: auto auto;
+		grid-template-columns: auto auto;
+		margin-left: auto;
+	}
+	#banner-author-name {
+		grid-row: 1/2;
+		grid-column: 1/2;
+		margin: 0 1rem 0 0;
+		align-self: end;
+		text-align: right;
+	}
+	#banner-date {
+		grid-row: 2/3;
+		grid-column: 1/2;
+		align-self: start;
+		margin: 0 1rem 0 0;
+		text-align: right;
+	}
+	#banner-author-pic {
+		grid-row: 1/3;
+		grid-column: 2/3;
+		align-self: center;
 		margin: 0;
 	}
-	.img-main {
-		height: 40vw;
-		margin:0;
+
+
+
+
+
+	.wrapper {
+		min-height: 50vh;
+		padding: 0 10vw;
+		overflow: hidden;
 	}
-	.title {
-		font-size: 3em;
-		align-self: center;
+	.content-img {
+		max-width: 80vw;
 	}
-	.date {
-	}
-	.heading {
-	}	
-	.content {
-	}
-	
 }
-/* --*-- Desktop Media Query Ends --*-- */

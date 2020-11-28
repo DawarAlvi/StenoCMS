@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 04, 2020 at 04:10 PM
+-- Generation Time: Nov 27, 2020 at 08:01 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -29,10 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `authors` (
   `id` int(11) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `display_name` varchar(30) NOT NULL,
+  `name` varchar(30) NOT NULL,
   `email` varchar(60) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT 0,
   `about` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -41,9 +40,10 @@ CREATE TABLE `authors` (
 -- Dumping data for table `authors`
 --
 
-INSERT INTO `authors` (`id`, `username`, `display_name`, `email`, `password`, `is_admin`, `about`) VALUES
-(1, 'dawar', 'Dawar', 'abc@gmail.com', 'test', 1, 'The admin of the website.'),
-(2, 'yunis', 'Yunis Bhat', 'yb@gmail.com', 'test', 0, 'Author of the website.');
+INSERT INTO `authors` (`id`, `name`, `email`, `password`, `is_admin`, `about`) VALUES
+(1, 'Dawar', 'dawar@steno.com', '$2y$10$eX7ARkEqBHFSrbShcaUWV.NMkKLGCB6LCJ6uM4ss6wEh/9eRvRj/G', 1, 'Admin of the site.'),
+(2, 'Yunis', 'yunis@steno.com', '$2y$10$4SK8qLGA4iFEx25WUbevJuReeoTxcinZvtisMRKvclqOe4OxPk2OW', 0, 'Author of the site.'),
+(10, 'Muzzamil', 'muzzamil@steno.com', '$2y$10$qNYoYGwmF/BbYpHCd.fOZO7YP6K4IW.jCXvJOVQGNWB.Z8mlY5qba', 1, 'Kuch kaam nai karta hai...');
 
 -- --------------------------------------------------------
 
@@ -63,10 +63,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `show_on_homepage`, `show_on_navbar`) VALUES
-(1, 'help', 1, 1),
-(2, 'technology', 1, 0),
-(3, 'wallpapers', 0, 0),
-(4, 'nature', 0, 0),
+(1, 'help', 0, 1),
+(2, 'technology', 0, 1),
+(3, 'wallpapers', 1, 0),
+(4, 'nature', 1, 0),
 (5, 'photography', 0, 0),
 (6, 'science', 0, 0);
 
@@ -150,6 +150,14 @@ CREATE TABLE `messages` (
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`id`, `sender`, `contents`, `email`, `date`) VALUES
+(1, 'Dawar Alvi', 'Test', 'dawar@abc.com', '2020-10-07'),
+(2, 'John Doe', 'Lorem ipsum', 'John@abc.com', '2020-10-08');
+
 -- --------------------------------------------------------
 
 --
@@ -159,11 +167,11 @@ CREATE TABLE `messages` (
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL,
   `title` varchar(60) NOT NULL,
-  `author_id` int(11) NOT NULL,
+  `author_id` int(11) DEFAULT NULL,
   `date` date NOT NULL,
-  `format` varchar(30) NOT NULL,
+  `format` varchar(100) NOT NULL,
   `views` int(11) NOT NULL DEFAULT 0,
-  `online` tinyint(1) NOT NULL
+  `online` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -171,10 +179,8 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `title`, `author_id`, `date`, `format`, `views`, `online`) VALUES
-(1, 'Every great journey starts with a single step', 1, '2020-05-18', 'htit', 100, 1),
-(2, 'Getting started', 2, '2020-07-17', 'htht', 200, 1),
-(3, 'Wallpaper Collection 2020', 1, '2020-09-25', 'ht', 50, 1),
-(4, 'Beautiful landscapes', 2, '2020-10-03', 'ii', 553, 1);
+(22, 'Web Design', 1, '2020-11-18', 'it', 0, 1),
+(23, 'Wallpaper Collection 2020', 1, '2020-11-21', 'iti', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -193,12 +199,8 @@ CREATE TABLE `post_categories` (
 --
 
 INSERT INTO `post_categories` (`id`, `post_id`, `category_id`) VALUES
-(1, 1, 1),
-(2, 2, 1),
-(5, 3, 2),
-(6, 3, 3),
-(7, 4, 4),
-(8, 4, 3);
+(11, 22, 2),
+(12, 23, 4);
 
 -- --------------------------------------------------------
 
@@ -211,16 +213,6 @@ CREATE TABLE `post_headings` (
   `content` text NOT NULL,
   `post_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `post_headings`
---
-
-INSERT INTO `post_headings` (`id`, `content`, `post_id`) VALUES
-(1, 'Welcome the steno cms', 1),
-(2, 'Installation', 2),
-(3, 'Making changes', 2),
-(5, 'The most awesome collection of wallpapers 2020', 3);
 
 -- --------------------------------------------------------
 
@@ -239,11 +231,8 @@ CREATE TABLE `post_texts` (
 --
 
 INSERT INTO `post_texts` (`id`, `content`, `post_id`) VALUES
-(1, 'They say every great journey starts with a single step. So we would like to welcome you to your first step towards making an awesome blog site.', 1),
-(2, 'We are excited to get you up and running. Check out the posts under \"help\" section to know more.\r\nGood luck ;)', 1),
-(3, 'Upload the files you downloaded from the Steno cms GitHub page to the server.', 2),
-(4, 'Login to the cms using the link in the footer or append \'/cms\' to the url of your site.', 2),
-(6, 'Here you\'ll find the most awesome and in-depth collection of technology related wallpapers anywhere on the internet.', 3);
+(14, '<p>Test post</p>', 22),
+(15, '<p>Here are some awesome wallpapers from various artists</p>', 23);
 
 --
 -- Indexes for dumped tables
@@ -322,13 +311,13 @@ ALTER TABLE `post_texts`
 -- AUTO_INCREMENT for table `authors`
 --
 ALTER TABLE `authors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `homepage`
@@ -346,31 +335,31 @@ ALTER TABLE `main_pages`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `post_categories`
 --
 ALTER TABLE `post_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `post_headings`
 --
 ALTER TABLE `post_headings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `post_texts`
 --
 ALTER TABLE `post_texts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
@@ -380,7 +369,7 @@ ALTER TABLE `post_texts`
 -- Constraints for table `posts`
 --
 ALTER TABLE `posts`
-  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `post_categories`

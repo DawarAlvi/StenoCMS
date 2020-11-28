@@ -119,7 +119,6 @@
         return $result;
     }
 
-
     function get_popular($limit=0) {
         global $connection;
         $query = "SELECT * FROM `posts` WHERE `online` = 1 ORDER BY `views` DESC";
@@ -200,7 +199,6 @@
         return $result;
     }
 
-
     function get_authors() {
         global $connection;
         $query = "SELECT * FROM `authors`";
@@ -226,7 +224,6 @@
         return $result;
     }
 
-    
     function get_categories($limit=0, $homepage=false) {
         global $connection;
         $query = "SELECT * FROM `categories`";
@@ -236,6 +233,16 @@
         $result = mysqli_query($connection, $query);
         confirm_query($result);
         return $result;
+    }
+
+    function increment_post_view($post_id) {
+        global $connection;
+        mysqli_query($connection, "UPDATE `posts` SET `views` = `views` + 1 WHERE id = '{$post_id}'");
+    }
+
+    function get_media_links() {
+        global $connection;
+        return mysqli_query($connection, "SELECT * FROM `links`");
     }
 
 ?>

@@ -25,6 +25,24 @@
                 $response = $already_default;
                 break;
 
+            case 'bannerabout':
+                if(file_exists('../../img/banner/about.jpg')) {
+                    unlink('../../img/banner/about.jpg');
+                    $response = $success;
+                    break;
+                }
+                $response = $already_default;
+                break;
+
+            case 'bannercontact':
+                if(file_exists('../../img/banner/contact.jpg')) {
+                    unlink('../../img/banner/contact.jpg');
+                    $response = $success;
+                    break;
+                }
+                $response = $already_default;
+                break;
+
             case 'logo':
                 if(file_exists('../../img/branding/custom_logo.jpg')) {
                     unlink('../../img/branding/custom_logo.jpg');

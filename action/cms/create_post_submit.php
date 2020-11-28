@@ -179,11 +179,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     else {
         //validation failed
         $_SESSION["errors"] = $errors;
-        header("Location: ../../cms/create_post.php");
+        header("Location: ../../cms/create_post");
     }
 }
 else {
-    header("Location: ../../cms/create_post.php");
+    header("Location: ../../cms/create_post");
     die("Bad Request");
 }
 ?>

@@ -66,11 +66,16 @@
 				?>
 			</div>
 			
-			
-			<div class="section-last">
-				<button type="button" class="btn btn-cancel" onclick="window.location.reload()" title="Discard Changes">Cancel</button>
-				<input type="submit" value="Save" class="btn btn-confirm"title="Save Changes">
-			</div>
+			<?php
+			if($_SESSION['is_admin']) {
+				echo('
+					<div class="section-last">
+						<button type="button" class="btn btn-cancel" onclick="window.location.reload()" title="Discard Changes">Cancel</button>
+						<input type="submit" value="Save" class="btn btn-confirm"title="Save Changes">
+					</div>
+				');
+			}
+			?>
 		</form>
     </div>
 	<!-- Main End -->
