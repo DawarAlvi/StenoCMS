@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         array_push($errors,"Name should be between 3 - 20 characters.");
     }
     if(strlen($password) < 6 || strlen($password) > 40)
-        array_push($errors,"Password cannot be less than 6 characters.");
+        array_push($errors,"Password should be between 6 - 40 characters.");
 
     //pattern
     if (!filter_var($email, FILTER_VALIDATE_EMAIL))
@@ -70,7 +70,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 else {
-    //header("Location: ../../cms/add_author.php");
+    header("Location: ../../cms/add_author.php");
     die("Bad Request");
 }
 ?>

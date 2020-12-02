@@ -18,7 +18,7 @@
     increment_post_view($post_id);
 
     $post_title = $post['title'];
-    $date = new DateTime($post['date']);
+    $date = get_date($post['date']);
     
     $format = str_split($post['format']);
     $author_id = $post['author_id'];
@@ -62,7 +62,7 @@
             <span id="banner-author">
                 <img id="banner-author-pic" src="img/authors/default.png" width="50">
                 <span id="banner-author-name"><?php print($author_name) ?></span>
-                <span id="banner-date"><?php print($date->format('d M Y')) ?></span>
+                <span id="banner-date"><?php echo($date) ?></span>
             </span>
         </div>
     </div>

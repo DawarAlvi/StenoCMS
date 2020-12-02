@@ -148,21 +148,35 @@ nav {
 /* --*-- Tablet Media Query Ends --*-- */
 
 /* --*-- Desktop Media Query --*-- */
-@media (min-width:980px) {
+@media (min-width:1025px) {
 
 	nav {
-		display:flex;
+        display:flex;
+        justify-content: center;
 	}
 	nav ul {
-		margin:auto auto;
-		display: block;
-	}
+        margin:0;
+        min-width: 100%;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow-x: scroll;
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    nav ul::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Hide scrollbar for IE, Edge and Firefox */
+    nav ul {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
     nav a{
         padding:0 4em;
     }
-		nav ul li {
-			display:inline-block;
-		}
 	nav #toggle {
 		display: none;
 	}

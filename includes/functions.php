@@ -1,4 +1,8 @@
 <?php
+    function get_date($d){
+        return (new DateTime($d))->format("d M Y");
+    }
+    
     function sanitize_input($input) {
         return htmlspecialchars(stripslashes(trim($input)));
     }
@@ -110,6 +114,13 @@
 
 
 
+    function get_main_pages_nav_info() {
+        global $connection;
+        $query = "SELECT `page_name`, `show_on_nav` FROM `main_pages`"; 
+        $result = mysqli_query($connection, $query);
+        confirm_query($result);
+        return $result;
+    }
 
     function get_homepage_info() {
         global $connection;
@@ -243,6 +254,11 @@
     function get_media_links() {
         global $connection;
         return mysqli_query($connection, "SELECT * FROM `links`");
+    }
+
+    function get_messages() {
+        global $connection;
+        return mysqli_query($connection, "SELECT * FROM `messages` ORDER BY `id` DESC");
     }
 
 ?>

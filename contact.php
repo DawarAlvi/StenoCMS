@@ -20,9 +20,12 @@
     <link rel="stylesheet" href="css/all.min.css" type="text/css">
     <link rel="stylesheet" href="css/light.min.css" type="text/css">
     <link rel="stylesheet" href="css/custom/contact.php" type="text/css">
-
+    
     <!--FAVICONS-->
     <?php file_exists("img/branding/custom_favicon.jpg")?print('<link rel="icon" type="image/x-icon" href="img/branding/custom_favicon.jpg">'):print('<link rel="icon" type="image/x-icon" href="img/branding/default_favicon.png">'); ?>
+    
+    <!-- SCRIPTS -->
+	<script src="js/ckeditor_lite/ckeditor.js"></script>
 </head>
 
 <body>
@@ -44,6 +47,9 @@
 
     <?php require_once("includes/footer.php"); ?>
 
+    <script>
+		CKEDITOR.replace("message");
+	</script>
 </body>
 
 </html>

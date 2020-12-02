@@ -3,6 +3,9 @@
 	auth_user("admin", ".");
 	require_once("../includes/db_connect.php");
 	require_once("../includes/functions.php");
+
+	$categories = get_categories();
+	$nav_info 	= get_main_pages_nav_info();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,21 +32,28 @@
     <?php require_once("../includes/cms/nav.php"); ?>
 
     <div class="main">
-        <form>
+		<?php echo validation_errors();?>
+		<?php echo messages();?>
+        <form method="post" action="../action/cms/navbar_submit.php">
 			<div class="section">
-				<h2>Default</h2>
-				<label>HOME</label> <input type="checkbox">
-				<label>CATEGORIES</label> <input type="checkbox">
-				<label>ABOUT</label> <input type="checkbox">
-				<label>CONTACT</label> <input type="checkbox">
+				<h2>Main pages to show on navbar</h2>
+				<label>HOME</label> 		<input type="checkbox" name="home" 			<?php echo(mysqli_fetch_assoc($nav_info)['show_on_nav'] ? 'checked' : '') ?>>
+				<label>CATEGORIES</label> 	<input type="checkbox" name="categories" 	<?php echo(mysqli_fetch_assoc($nav_info)['show_on_nav'] ? 'checked' : '') ?>>
+				<label>ABOUT</label> 		<input type="checkbox" name="about" 		<?php echo(mysqli_fetch_assoc($nav_info)['show_on_nav'] ? 'checked' : '') ?>>
+				<label>CONTACT</label> 		<input type="checkbox" name="contact" 		<?php echo(mysqli_fetch_assoc($nav_info)['show_on_nav'] ? 'checked' : '') ?>>
 			</div>			
 			
 			<div class="section">
-				<h2>Categories</h2>
-				<label>Tech</label> <input type="checkbox">
-				<label>Laptops</label> <input type="checkbox">
-				<label>News</label> <input type="checkbox">
-				<label>Smart Phones</label> <input type="checkbox">
+				<h2>Categories to show on navbar</h2>
+				<?php 
+					while ($category = mysqli_fetch_assoc($categories)) {
+						$entry = '<label>' . ucwords($category['name']) . '</label> <input type="checkbox" name="show_category_';
+						$entry .= $category['id'] . '" ';
+						$entry .= $category['show_on_navbar'] ? 'checked' : '';
+						$entry .= ' >';
+						echo($entry);
+					}
+				?>
 			</div>
 			
 			

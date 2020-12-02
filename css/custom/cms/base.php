@@ -74,30 +74,42 @@ input[type="file"], input{
 	position: fixed;
 	left: 0;
 	top: 0;
-
 	display: none;
 	align-items: center;
 	justify-content: center;
-
 	width: 100%;
 	height: 100%;
-
 	background: #000000aa;
 }
 	.modal * {
 		margin-top: 1em;
 	}
-	.modal form {
+	.modal form, .modal > div {
+		max-height: 80vh;
+		min-width: 80vw;
+		max-width: 90vw;
 		padding: 1em;
-		
 		border-radius: 3px;
 		background: white;
+		overflow-y: scroll;
 	}
 	.modal input[type="text"] {
 		min-width: 250px;
 	}
+
+	#viewModal form {
+		display: flex;
+		flex-direction: column;
+		min-height: 60em;
+		overflow: hidden;
+	}
+	#viewModal form textarea {
+		min-height: 3em;
+	}
 	
 /* --*-- Mobile Ends --*-- */
+
+
 
 /* --*-- Tablet Media Query --*-- */
 @media (min-width:550px) {
@@ -121,7 +133,14 @@ input[type="file"], input{
 		position: fixed;
 		right:1em;
 	}
+
+
+	.modal form, .modal > div {
+		max-width: 60vw;
+	}
 }
+
+
 
 /* --*-- Desktop Media Query --*-- */
 @media (min-width:980px) {
@@ -132,5 +151,12 @@ input[type="file"], input{
 
 	.section-last .controls {
 		right: 2.1em;
+	}
+
+
+
+	.modal form, .modal > div {
+		min-width: 40vw;
+		max-width: 50vw;
 	}
 }
