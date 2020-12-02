@@ -55,22 +55,22 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         if($result) {
             array_push($messages,"Author created successfully.");
             $_SESSION["messages"] = $messages;
-            header("Location: ../../cms/add_author.php");
+            header("Location: ../../cms/add_author");
         }
         else{
             array_push($errors,"Database query failed.");
             $_SESSION["errors"] = $errors;
-            header("Location: ../../cms/add_author.php");
+            header("Location: ../../cms/add_author");
         }
     }
     else{
         //validation failed
         $_SESSION["errors"] = $errors;
-        header("Location: ../../cms/add_author.php");
+        header("Location: ../../cms/add_author");
     }
 }
 else {
-    header("Location: ../../cms/add_author.php");
+    header("Location: ../../cms/add_author");
     die("Bad Request");
 }
 ?>

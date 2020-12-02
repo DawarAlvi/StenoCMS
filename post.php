@@ -60,7 +60,7 @@
         <div id="banner-strip">
             <span id="banner-title"><?php print($post_title) ?></span>
             <span id="banner-author">
-                <img id="banner-author-pic" src="img/authors/default.png" width="50">
+                <img id="banner-author-pic" src="<?php file_exists('img/authors/'. $author_id .'.jpg')?print('img/authors/'. $author_id .'.jpg'):print('img/authors/default.png') ?>" width="50">
                 <span id="banner-author-name"><?php print($author_name) ?></span>
                 <span id="banner-date"><?php echo($date) ?></span>
             </span>

@@ -35,10 +35,10 @@
         <form action="../action/cms/add_author_submit.php" method="post">
 			<div class="section">
 				<h2>Create New Author</h2>
-				<label>Name *</label> <input type="text" name="name" required>
+				<label>Name *</label> <input type="text" name="name" minlength="3" required>
 				<label>Email *</label> <input type="text" name="email" required>
-				<label>Password *</label> <input type="password" name="password" required>
-				<label>Retype Password *</label> <input type="password" name="password2" required>
+				<label>Password *</label> <input type="password" name="password" minlength="6" required>
+				<label>Retype Password *</label> <input type="password" name="password2" minlength="6" required>
 				<label>Make Admin</label> <input type="checkbox" name="admin">
 				<label>About *</label> <textarea name="about" required></textarea>
 			</div>

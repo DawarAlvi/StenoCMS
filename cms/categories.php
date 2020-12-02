@@ -34,8 +34,8 @@
 	?>
 
     <div class="main">
-		<?php echo validation_errors();?>
-		<?php echo messages();?>
+		<?php echo validation_errors() ?>
+		<?php echo messages() ?>
         <form method="post" action="../action/cms/categories_submit.php" enctype="multipart/form-data">
 		
 		<?php if($_SESSION['is_admin']) { ?>
@@ -43,11 +43,11 @@
 				<h2>Banner</h2>
 				<label>Banner Categories Background</label> <input type="file" name="banner_categories_bg" id="bcp_bg">
 				<span>
-					<button type="button" class="btn"  title="Clear" onclick="document.getElementById(\'bcp_bg\').value=\'\';"><span class="fal fa-times"></span></button>
-					<button type="button" class="btn btn-cancel"  title="Use the default image" onclick="ajaxDeleteImage(\'bannercategories\')">Default</button>
+					<button type="button" class="btn"  title="Clear" onclick="document.getElementById('bcp_bg').value='';"><span class="fal fa-times"></span></button>
+					<button type="button" class="btn btn-cancel"  title="Use the default image" onclick="ajaxDeleteImage('bannercategories')">Default</button>
 				</span>
-				<label>Banner Categories Title</label> <input type="text" name="banner_categories_title" value="' . $title . '">
-				<label>Banner Categories Caption</label> <input type="text" name="banner_categories_caption" value="' . $caption . '">
+				<label>Banner Categories Title</label> <input type="text" name="banner_categories_title" value="<?php echo($title) ?>">
+				<label>Banner Categories Caption</label> <input type="text" name="banner_categories_caption" value="<?php echo($caption) ?>">
 			</div>
 		<?php } ?>
 		

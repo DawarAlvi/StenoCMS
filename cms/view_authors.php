@@ -31,8 +31,10 @@
 	?>
 
     <div class="main">
+		<?php echo validation_errors();?>
+		<?php echo messages();?>
 		<div class="section">
-			<h2>All Authors - by name</h2>
+			<h2>All Authors</h2>
 			<?php
 				$authors = get_authors();
 				
@@ -77,16 +79,25 @@
 					<?php if($_SESSION["is_admin"]) { ?>
 					<button type="button"class="btn btn-cancel" onclick="deleteAuthor();" id="modalDelete">Delete</button>
 					<?php } ?>
-	
-					<button type="button"class="btn btn-confirm" onclick="document.querySelector('#viewModal').style.display='none';authorId=0;">Cancel</button>
+					<button type="button" class="btn btn-confirm" onclick="document.querySelector('#viewModal').style.display='none';authorId=0;">Cancel</button>
 				</div>
-			
-				<label>Name *</label> 			<input type="text" name="name" id="name" required>
-				<label>Email *</label> 			<input type="text" name="email" id="email" required>
-				<label>Password </label> 		<input type="password" name="password">
-				<label>Retype Password</label> 	<input type="password" name="password2">
+				<?php if($_SESSION["is_admin"]) { ?>
+				<b>Leave a field empty or at default value to not change it.</b>
+				<?php } ?>
+				<input type="text" name="id" id="id" required readonly hidden>
+				<input type="text" name="old_email" id="old_email" required readonly hidden >
+				<label>Name *</label> 			<input type="text" name="name" id="name" <?php $_SESSION["is_admin"]?print(""):print("readonly") ?>>
+				<label>Email *</label> 			<input type="text" name="email" id="email" <?php $_SESSION["is_admin"]?print(""):print("readonly") ?>>
+				<?php if($_SESSION["is_admin"]) { ?>
+				<label>Password </label> 		<input type="password" name="password" minlength="6">
+				<label>Retype Password</label> 	<input type="password" name="password2" minlength="6">
 				<label>Make Admin</label> 		<input type="checkbox" name="admin" id="admin">
-				<label>About *</label> 			<textarea name="about" id="about" required></textarea>
+				<?php } ?>
+				<label>About *</label> 			<textarea name="about" id="about" <?php $_SESSION["is_admin"]?print(""):print("readonly") ?>></textarea>
+			
+				<?php if($_SESSION["is_admin"]) { ?>
+				<input type="submit" class="btn btn-confirm" value="Save">
+				<?php } ?>
 			</form>
 		</div>
 	</div>
@@ -96,14 +107,20 @@
 
 		function viewModal(id, name, email, admin, bio) {
 			authorId = id;
+			document.querySelector("#id").value = id;
+			
 			document.querySelector("#nameh1").innerText = name;
 			document.querySelector("#name").value = name;
+			document.querySelector("#old_email").value = email;
 			document.querySelector("#email").value = email;
 
+
+			<?php if($_SESSION["is_admin"]) { ?>
 			if(admin === 1)
 				document.querySelector("#admin").checked = true;
 			else
 				document.querySelector("#admin").checked = null;
+			<?php } ?>
 
 			document.querySelector("#about").innerText = bio;
 
@@ -112,7 +129,7 @@
 		}
 
 		function deleteAuthor() {
-			if(confirm("Delete message?")) {
+			if(confirm("Delete author?")) {
 				window.location = "../action/cms/delete_author.php?id=" + authorId;
 			}
 		}
