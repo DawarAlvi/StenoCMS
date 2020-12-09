@@ -3,6 +3,10 @@
         return (new DateTime($d))->format("d M Y");
     }
     
+    function count_folder($dir) {
+        return (count(scandir($dir)) - 2);
+    }
+
     function sanitize_input($input) {
         return htmlspecialchars(stripslashes(trim($input)));
     }
@@ -201,6 +205,13 @@
         return $result;
     }
 
+    function get_posts_by_author($author_id) {
+        global $connection;
+        $query = "SELECT * FROM `posts` WHERE `author_id` = '{$author_id}'";
+        $result = mysqli_query($connection, $query);
+        return $result;
+    }
+
     function get_post_by_id($id) {
         global $connection;
         $query = "SELECT * from `posts` WHERE `id` = " . $id;
@@ -212,7 +223,7 @@
 
     function get_authors() {
         global $connection;
-        $query = "SELECT * FROM `authors`";
+        $query = "SELECT * FROM `authors` ORDER BY `name` ASC";
         $result = mysqli_query($connection, $query);
         return $result;
     }

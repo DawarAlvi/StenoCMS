@@ -84,16 +84,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 
-
-
-    /*--Sanitization--*/
-    // htmlentities
-    // mysqli_real_escape_strings
-    //urlencode
-
     
-    
-
 
     /*--Queries--*/
     if(count($errors) === 0) {

@@ -8,6 +8,17 @@
 	$title 		 = $banner_info["title"];
 	$caption 	 = $banner_info["caption"];
 
+
+	$about = mysqli_query($connection, "SELECT * FROM `about`");
+
+    $section_1_title = mysqli_fetch_assoc($about)['value'];
+    $section_1_content = mysqli_fetch_assoc($about)['value'];
+    
+    $show_section_feature = mysqli_fetch_assoc($about)['value'];
+
+    $show_section_2 = mysqli_fetch_assoc($about)['value'];
+    $section_2_title = mysqli_fetch_assoc($about)['value'];
+    $section_2_content = mysqli_fetch_assoc($about)['value'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,37 +48,38 @@
     <?php require_once("../includes/cms/nav.php"); ?>
 
     <div class="main">
-        <form method="post">
+		<?php echo validation_errors() ?>
+		<?php echo messages() ?>
+        <form method="post" action="../action/cms/about_submit.php" enctype="multipart/form-data">
 			<div class="section">
 				<h2>Banner</h2>
-				<label>Banner About Background</label> <input type="file">
-				<button class="btn btn-cancel" onclick="window.location.reload()" title="Deletes your uploaded image from the server">Default</button>
+				<label>Banner About Background</label> <input type="file" name="banner_about_bg" id="bap_bg">
+				<span>
+					<button type="button" class="btn"  title="Clear" onclick="document.getElementById('bap_bg').value='';"><span class="fal fa-times"></span></button>
+					<button type="button" class="btn btn-cancel"  title="Use the default image" onclick="ajaxDeleteImage('bannerabout')">Default</button>
+				</span>
 				
-				<label>Banner About Title</label> <input type="text" value="<?php echo($title) ?>">
+				<label>Banner About Title</label> <input type="text" name="banner_about_title" value="<?php echo($title) ?>">
 				
-				<label>Banner About Caption</label> <input type="text" value="<?php echo($caption) ?>">
+				<label>Banner About Caption</label> <input type="text" name="banner_about_caption" value="<?php echo($caption) ?>">
 			</div>
 			
 			<div class="section">
 				<h2>Section Top</h2>				
-				<label>Section Title</label> <input type="text">
-				<label>Section Content</label> <textarea name="section-top-content">Default Text</textarea>
+				<label>Section Title</label> <input type="text" name="section_1_title" value="<?php echo($section_1_title); ?>">
+				<label>Section Content</label> <textarea name="section_1_content"><?php echo($section_1_content); ?></textarea>
 			</div>
 			
 			<div class="section">
 				<h2>Section Feature</h2>	
-				<label>Show This Section</label> <input type="checkbox">
-				<label>Item 1</label> <input type="text">
-				<label>Item 2</label> <input type="text">
-				<label>Item 3</label> <input type="text">
-				<label>Item 4</label> <input type="text">
+				<label>Show This Section</label> <input type="checkbox" name="show_section_feature" <?php $show_section_feature==='1'?print('checked'):print('') ?>>
 			</div>
 			
 			<div class="section">
 				<h2>Section Bottom</h2>
-				<label>Show This Section</label> <input type="checkbox">				
-				<label>Section Title</label> <input type="text">
-				<label>Section Content</label> <textarea name="section-bottom-content">Default Text</textarea>
+				<label>Show This Section</label> <input type="checkbox" name="show_section_2" <?php $show_section_2==='1'?print('checked'):print('') ?>>				
+				<label>Section Title</label> <input type="text" name="section_2_title" value="<?php echo($section_2_title); ?>">
+				<label>Section Content</label> <textarea name="section_2_content"><?php echo($section_2_content); ?></textarea>
 			</div>
 			
 			
@@ -81,10 +93,10 @@
 		</form>
     </div>
 
-
+	<script src="../js/custom.js"></script>
 	<script>
-		CKEDITOR.replace("section-top-content");
-		CKEDITOR.replace("section-bottom-content");
+		CKEDITOR.replace("section_1_content");
+		CKEDITOR.replace("section_2_content");
 	</script>
 </body>
 

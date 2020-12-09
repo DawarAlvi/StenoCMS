@@ -18,8 +18,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     $errors = array();
     $messages = array();
 
-
-
+    /*--NAME--*/
     if($name !== "") {
         // Validation
         if(strlen($name) < 3 || strlen($name) > 20){
@@ -35,6 +34,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 
+    /*--PASSWORD--*/
     if($password !== ""){
         if(strlen($password) < 6 || strlen($password) > 40)
             array_push($errors,"Password should be between 6 - 40 characters.");
@@ -49,6 +49,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
     
+    /*--EMAIL--*/
     if($email !== "" && $email !== $old_email) {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL))
             array_push($errors,"Invalid email format");
@@ -63,9 +64,16 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
     
+    /*--ABOUT--*/
+    if($about !== "") {
+        // Query
+        if (count($errors) === 0) {
+            mysqli_query($connection, "UPDATE `authors` SET `about` = '{$about}' WHERE `id` = {$id}");
+        }
+    }
+    
 
-
-    /*--Queries--*/
+    /*--ERRORS--*/
     if(count($errors) === 0){
         array_push($messages,"Changes saved.");
         $_SESSION["messages"] = $messages;

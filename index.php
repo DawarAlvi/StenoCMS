@@ -60,10 +60,7 @@
                                 '); 
                                 foreach($post_categories as $category) {
                                     echo('
-                                    <span href="categoies/?q=' . 
-                                    $category . 
-                                    '">'. $category . 
-                                    '</span>'
+                                    <span>'. $category . '</span>'
                                 );
                                 }
                                 echo('
@@ -105,8 +102,7 @@
             
             $post_no = 1;
             while($latest_post = mysqli_fetch_assoc($latest_posts)) {
-                $date = new DateTime($latest_post["date"]);
-                $date = $date -> format("d M Y");
+                $date = get_date($latest_post["date"]);
                 $post_categories = get_post_categories($latest_post["id"]);
                 echo('
                 <a class="post postbg-' . $latest_post["id"] . ' post-' . $post_no . '" href=post?q=' . $latest_post["id"] . '>

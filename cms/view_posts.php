@@ -22,11 +22,6 @@
 
     <!--FAVICONS-->
     <?php file_exists("../img/branding/custom_favicon.jpg")?print('<link rel="icon" type="image/x-icon" href="../img/branding/custom_favicon.jpg">'):print('<link rel="icon" type="image/x-icon" href="../img/branding/default_favicon.png">'); ?>
-
-	<script>
-		function view_post(id) {
-			window.location.href = "view_post?q=" + id;
-		}
 	</script>
 </head>
 
@@ -39,31 +34,51 @@
 	?>
 
     <div class="main">
+		<?php echo validation_errors(); ?>
+		<?php echo messages(); ?>
 		<div class="section">
-			<h2>All Posts - by date</h2>
-			<?php
-				while($post = mysqli_fetch_assoc($posts)){
-					$author = get_author_by_id($post["author_id"])["name"];
-					$date = new DateTime($post["date"]);
-					$date = $date->format('d M Y');
-					echo('
-						<span>' . $post["title"] . '</span><span><b>' . $author . '</b> &nbsp;- &nbsp; ' . $date . '</span><button type="button" class="btn btn-confirm" onclick="view_post('.$post['id'].')">View</button>
-					');
-				}
+			<h2>All Posts</h2>
+			<?php while($post = mysqli_fetch_assoc($posts)){
+				$author = get_author_by_id($post["author_id"])["name"];
+				$date = new DateTime($post["date"]);
+				$date = $date->format('d M Y');
 			?>
+				<a href="../post?q=<?php echo($post["id"]) ?>" style="color: blue;" target="_blank"><?php echo($post["title"]) ?></a>
+				<span><b><?php echo($author) ?></b> &nbsp;- &nbsp; <?php echo($date) ?></span>
+				<span>
+					<?php if($_SESSION['is_admin'] || $_SESSION['author_id'] === $post["author_id"]) { ?>
+					<button type="button" class="btn btn-confirm" onclick="window.location='edit_post?q=<?php echo($post['id']) ?>';">Edit</button>
+					<?php } ?>
+					<?php if($_SESSION['is_admin']) { ?>
+					<button type="button" class="btn btn-cancel" onclick="ajaxDeletePost(<?php echo($post['id']) ?>)">Delete</button>
+					<?php } ?>
+				</span>
+			<?php } ?>
 		</div>			
-        <form method="post">
-			<div class="section-last">
-				<select>
-					<option>Date</option>
-					<option>Author</option>
-				</select>
-				<input type="submit" value="sort" class="btn btn-confirm"title="Sort">
-			</div>
-		</form>
 	</div>
-	
 
+	<script>
+		function ajaxDeletePost(postId) {
+			if(confirm("Delete post?")) {
+				xmlhttp = new XMLHttpRequest();
 
+				xmlhttp.onreadystatechange=function() {
+					if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+						if (history.scrollRestoration) {
+							history.scrollRestoration = 'manual';
+						} else {
+							window.onbeforeunload = function () {
+								window.scrollTo(0, 0);
+							}
+						}
+						location.reload();
+					}
+				}
+
+				xmlhttp.open('GET', '../action/cms/ajax_delete_post.php?id=' + postId, true);
+				xmlhttp.send();
+			}
+		}
+	</script>
 </body>
 </html>

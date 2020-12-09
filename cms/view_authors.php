@@ -3,6 +3,8 @@
 	auth_user("author", ".");
 	require_once("../includes/db_connect.php");
 	require_once("../includes/functions.php");
+
+	$authors = get_authors();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,8 +38,6 @@
 		<div class="section">
 			<h2>All Authors</h2>
 			<?php
-				$authors = get_authors();
-				
 				while($author = mysqli_fetch_assoc($authors)) {
 
 					$query = 'SELECT COUNT(*) FROM posts WHERE author_id = ' . $author['id'];
@@ -57,14 +57,6 @@
 				}
 			?>
 		</div>			
-		
-		<div class="section-last">
-			<select>
-				<option>Name</option>
-				<option>No. of posts</option>
-			</select>
-			<button type="button" value="sort" class="btn btn-confirm">Sort</button>
-		</div>
 	</div>
 	<!-- Main End -->
 
