@@ -22,8 +22,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     if(strlen($name) < 3 || strlen($name) > 20){
         array_push($errors,"Name should be between 3 - 20 characters.");
     }
-    if(strlen($password) < 6 || strlen($password) > 40)
-        array_push($errors,"Password should be between 6 - 40 characters.");
+    if(strlen($password) < 6 || strlen($password) > 25)
+        array_push($errors,"Password should be between 6 - 25 characters.");
 
     //pattern
     if (!filter_var($email, FILTER_VALIDATE_EMAIL))

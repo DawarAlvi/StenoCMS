@@ -52,7 +52,7 @@
 					
 					echo('</b>' . $author['name'] . '</span>
 						<span>' . mysqli_fetch_row($no_of_posts)[0] . '</span>
-						<button type="button" class="btn btn-confirm" onclick="viewModal(' . $author['id'] . ',\'' . $author['name'] . '\',\'' . $author['email'] . '\',' . $author['is_admin'] . ',\'' . $author['about'] . '\');">View</button>
+						<button type="button" class="btn btn-confirm" onclick="viewModal(' . $author['id'] . ',\'' . $author['name'] . '\',\'' . $author['email'] . '\',' . $author['is_admin'] . ',\'' . addslashes($author['about']) . '\');">View</button>
 					');
 				}
 			?>

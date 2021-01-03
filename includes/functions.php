@@ -8,7 +8,8 @@
     }
 
     function sanitize_input($input) {
-        return htmlspecialchars(stripslashes(trim($input)));
+		global $connection;
+        return mysqli_real_escape_string($connection, stripslashes(trim($input)));
     }
 
     function confirm_query($result) {

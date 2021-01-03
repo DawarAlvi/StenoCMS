@@ -39,6 +39,10 @@
 	border: 3px solid white;
 }
 
+.wrapper {
+	font-size: 1.1em;
+	line-height: 2em;
+}
 .content-img{
 	max-width: 100vw;
 }
